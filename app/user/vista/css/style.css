@@ -1,0 +1,157 @@
+body
+{
+	/*background: #c8d6e5;*/
+	background: #FFF;
+	color:#000;
+	/*font-family: 'Open Sans Condensed', sans-serif;*/
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12pt;
+}
+h1,h2,h3,h4,h5,h6{color:#ee5253;font-weight: bold;}
+table tr td a
+{
+	text-decoration: none;
+	color:#FFF;
+	border: 0px solid #FFF;
+	padding: 5px;
+	width: 100%;
+	float: left;
+}
+a:hover{
+	color:#FFF;
+	background: #ee5253;
+	text-decoration: none;
+}
+.alerta_formulario{display: none;}
+#navbar
+{
+	border:0px solid blue;
+	padding: 10px;
+	position: fixed;
+	width: 100%;
+	box-shadow: 0px 0px 10px #FFF;
+	background: #222f3e;
+	z-index: 50;
+	color: #FFF;
+}
+
+.btn_menu{display: none;}
+
+.menu
+{
+	background: #c0392b;
+	font-size: 12pt;
+	height: 100vh;
+}
+/*------------------------- MENU DE NAVEGACION MOVIL---------------------------*/
+.menu-movil{
+	display: none;
+	font-size: 12pt;
+	height: 100vh;
+	position: fixed;
+	top: 0px;
+	z-index: 100;
+	/*background: #ee5253;*/
+	background: #c0392b;
+	padding: 10px;
+	overflow-y: scroll;
+}
+
+.menu-movil a{
+	width: 100%;
+	float: left;
+}
+
+.menu-movil a:hover{
+	background:  #222f3e;
+}
+
+.ver{
+	display: block;
+	animation: ver_menu;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+@keyframes ver_menu{
+	from{left: -200px;}
+	to{left: 0px;}
+}
+
+.ocultar{
+	/*display: none;*/
+	animation: ocultar_menu;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+@keyframes ocultar_menu{
+	from{left: 0px;}
+	to{left: -200px;}
+}
+
+table{width: 100%;}
+table tr td{padding: 5px;}
+
+.header
+{
+	/*background: #FFF;*/
+	background: #c0392b;
+	box-shadow: 0px 0px 5px #c8d6e5;
+}
+
+
+/*PANEL ANIMADO*/
+#panel_animado
+{
+	display: none;
+	float: left;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 0px;
+	z-index: 900;
+	animation: panel_animado;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+@keyframes panel_animado{
+	from{top: -1000px;opacity: 0;}
+	to{top: 0px;opacity: 1;}
+}
+
+#contenido_animado
+{
+	margin: auto;
+	padding: 20px;
+	margin-top: 0px;
+	background: #FFF; 
+}
+
+/*------------------------------------------- AJUSTE RESPONSIVE ------------------------------------*/
+@media only screen and (max-width: 1000px) {
+    
+    .menu{display: none;}
+    .btn_menu
+    {
+    	display: block;
+    	color: #FFF;
+    	padding: 10px;
+    	text-align: center;
+    }
+    
+}
+
+
+/*-------------------------------------ESTILOS DE APLICACION WEB-----------------------------*/
+.opciones{
+	display: none;
+	background: #e74c3c;
+}
+
+.contenedor_producto
+{
+	/*border: 1px solid red;*/
+	padding: 0px;
+	margin: 10px;
+	box-shadow: 0px 0px 10px #AAA;
+}

@@ -1,0 +1,13 @@
+#	IMPEDIR QUE SE PUEDA VER EL LISTADO DE CONTENIDOS DE UN DIRECTORIO
+
+Options All -Indexes
+
+# 	ACTIVAR REWRITEENGINE ON
+
+RewriteEngine on
+
+# 	Reescribir la URL solicitada por el usuario
+#   Entrada:  index/MODULO/
+#   Salida: index.php?modulo=MODULO
+
+RewriteRule ^(\w+)$ index.php?modulo=$1
