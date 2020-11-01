@@ -44,7 +44,7 @@
 					</div>
 
 					<div class="col-xs-12 col-md-8" style="padding: 10px;text-align: right;color:#FFF;">
-						<a class="btn_sup" href="./app/" target="_blank"><i class="fa fa-sign-in-alt"></i> Ingresar</a>
+						<a class="btn_sup" href="./login.php" target="_blank"><i class="fa fa-sign-in-alt"></i> Ingresar</a>
 						<a class="btn_sup" href="./registrarse"><i class="fa fa-user-plus"></i> Registrarse</a>
 						<a class="btn_sup" href="./como_comprar"><i class="fa fa-question-circle"></i> ¿Como Comprar?</a>
 					</div>	
