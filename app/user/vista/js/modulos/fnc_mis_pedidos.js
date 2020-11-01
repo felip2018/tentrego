@@ -1,6 +1,6 @@
 function verListaPedidos() 
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		//url:"vista/ajax/ajax_mis_pedidos.php",
 		url:"vista/modulos/mis_pedidos/lista_pedidos.php",
@@ -10,11 +10,11 @@ function verListaPedidos()
  		},
  		success:function (response) {
  			//console.log(response);
- 			$(".listaPedidos").html(response);
+ 			jQuery(".listaPedidos").html(response);
  			/*var jsonResponse = JSON.parse(response);
  			if (jsonResponse.estado == "success") 
  			{
- 				$.each(jsonResponse.data,function (index,value) {
+ 				jQuery.each(jsonResponse.data,function (index,value) {
 
  					var colorEstado;
 
@@ -30,7 +30,7 @@ function verListaPedidos()
 
  					var fecha = new Date(value['fecha']);
 
- 					$(".listaPedidos").append('<tr>'+
+ 					jQuery(".listaPedidos").append('<tr>'+
  												'<td>'+value['id_pedido']+'</td>'+
  												'<td>'+value['codigo_pedido']+'</td>'+
  												'<td>'+fecha+'</td>'+
@@ -45,7 +45,7 @@ function verListaPedidos()
  			}
  			else if(jsonResponse.estado == "vacio")
  			{
- 				$(".listaPedidos").html('<tr><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>');
+ 				jQuery(".listaPedidos").html('<tr><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>');
  			}
  			else
  			{
@@ -58,14 +58,14 @@ function verListaPedidos()
 
 function ver_pedido(id_pedido)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/mis_pedidos/ver_pedido.php",
 		data:{
 			id_pedido: id_pedido
 		},
 		success:function (response) {
-			$("#vista").html(response);
+			jQuery("#vista").html(response);
 		}
 	})
 }
@@ -73,13 +73,13 @@ function ver_pedido(id_pedido)
 //	CANCELAR PEDIDO
 function cancelar_pedido(id_pedido,codigo_pedido)
 {
-	$(".modal").modal('toggle');
-	$(".modal-title").html('Cancelar pedido.');
-	$(".modal-body").html('¿Desea cancelar la solicitud del pedido actual?');
-	$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+	jQuery(".modal").modal('toggle');
+	jQuery(".modal-title").html('Cancelar pedido.');
+	jQuery(".modal-body").html('¿Desea cancelar la solicitud del pedido actual?');
+	jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-	$(".modal-btn-accept").click(function () {
-		$.ajax({
+	jQuery(".modal-btn-accept").click(function () {
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_mis_pedidos.php",
 			data:{
@@ -92,23 +92,23 @@ function cancelar_pedido(id_pedido,codigo_pedido)
 				var jsonResponse = JSON.parse(response);
 				if (jsonResponse.estado == "success") 
 				{
-					$(".modal-title").html('Cancelación exitosa');
-					$(".modal-body").html('Se ha realizado la cancelación del pedido correctamente.');
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html('Cancelación exitosa');
+					jQuery(".modal-body").html('Se ha realizado la cancelación del pedido correctamente.');
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal('toggle');
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal('toggle');
 						loadPage('mis_pedidos');
 					});
 				}
 				else if (jsonResponse.estado == "error") 
 				{
-					$(".modal-title").html('Ha ocurrido un error');
-					$(".modal-body").html(jsonResponse.data);
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html('Ha ocurrido un error');
+					jQuery(".modal-body").html(jsonResponse.data);
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal('toggle');
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal('toggle');
 					});
 				}
 			}
@@ -121,13 +121,13 @@ function cancelar_pedido(id_pedido,codigo_pedido)
 function pago_contraentrega(id_pedido)
 {
 	//console.log("Pago contra entrega Id Pedido -> "+id_pedido);
-	$(".modal").modal("toggle");
-	$(".modal-title").html('Confirmación del pago.');
-	$(".modal-body").html('¿Desea confirmar el pago de este pedido contra entrega?');
-	$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+	jQuery(".modal").modal("toggle");
+	jQuery(".modal-title").html('Confirmación del pago.');
+	jQuery(".modal-body").html('¿Desea confirmar el pago de este pedido contra entrega?');
+	jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-	$(".modal-btn-accept").click(function () {
-		$.ajax({
+	jQuery(".modal-btn-accept").click(function () {
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_mis_pedidos.php",
 			data:{
@@ -139,23 +139,23 @@ function pago_contraentrega(id_pedido)
  				var jsonResponse = JSON.parse(response);
  				if (jsonResponse.estado == 'success') 
  				{
- 					$(".modal-title").html('Se ha solicitado el pedido correctamente.');
-					$(".modal-body").html('Se ha deifinido el medio de pago del pedido como <b>pago contra entrega</b>. Un agente se pondra en contacto contigo para validar el pedido y detallar tu compra.<br>Muchas gracias');
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+ 					jQuery(".modal-title").html('Se ha solicitado el pedido correctamente.');
+					jQuery(".modal-body").html('Se ha deifinido el medio de pago del pedido como <b>pago contra entrega</b>. Un agente se pondra en contacto contigo para validar el pedido y detallar tu compra.<br>Muchas gracias');
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal('toggle');
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal('toggle');
 						ver_pedido(id_pedido);
 					});
  				}
  				else if (jsonResponse.estado == 'error') 
  				{
- 					$(".modal-title").html('Ha ocurrido un error');
-					$(".modal-body").html(jsonResponse.data);
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+ 					jQuery(".modal-title").html('Ha ocurrido un error');
+					jQuery(".modal-body").html(jsonResponse.data);
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal('toggle');
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal('toggle');
 						ver_pedido(id_pedido);
 					});
 
@@ -187,9 +187,9 @@ function producto_caso(caso,id_pedido,id_producto)
 			break;
 	}
 
-	$(".modal").modal('toggle');
-	$(".modal-title").html(modal_title);
-	$(".modal-body").html('<p>'+modal_body_message+'</p>'+
+	jQuery(".modal").modal('toggle');
+	jQuery(".modal-title").html(modal_title);
+	jQuery(".modal-body").html('<p>'+modal_body_message+'</p>'+
 							'<form id="form_caso">'+
 								'<input type="hidden" name="caso" value="'+caso+'">'+
 								'<input type="hidden" name="id_pedido" value="'+id_pedido+'">'+
@@ -199,10 +199,10 @@ function producto_caso(caso,id_pedido,id_producto)
 							'</form><br>'+
 							'<button class="btn btn-primary btn-block modal-btn-accept">'+modal_button+'</button>');
 
-	$(".modal-footer").html('');
+	jQuery(".modal-footer").html('');
 
-	$(".modal-btn-accept").click(function () {
-		$.ajax({
+	jQuery(".modal-btn-accept").click(function () {
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_mis_pedidos.php",
 			data:{
@@ -210,7 +210,7 @@ function producto_caso(caso,id_pedido,id_producto)
 				caso: 		caso,
 				id_pedido: 	id_pedido,
 				id_producto:id_producto,
-				motivo: 	$("#motivo").val()
+				motivo: 	jQuery("#motivo").val()
 			},
 			success:function (response) 
 			{
@@ -218,23 +218,23 @@ function producto_caso(caso,id_pedido,id_producto)
 				var jsonResponse = JSON.parse(response);
 				if (jsonResponse.estado == "success") 
 				{
-					$(".modal_title").html("Caso creado");
-					$(".modal-body").html('Se ha creado el caso correctamente.');
-					$(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal_title").html("Caso creado");
+					jQuery(".modal-body").html('Se ha creado el caso correctamente.');
+					jQuery(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal('toggle');
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal('toggle');
 						ver_pedido(id_pedido);
 					});
 				}
 				else if (jsonResponse.estado == "error") 
 				{
-					$(".modal_title").html("Ha ocurrido un error");
-					$(".modal-body").html(jsonResponse.data);
-					$(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal_title").html("Ha ocurrido un error");
+					jQuery(".modal-body").html(jsonResponse.data);
+					jQuery(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal('toggle');
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal('toggle');
 						ver_pedido(id_pedido);
 					});
 				}

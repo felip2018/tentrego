@@ -1,7 +1,7 @@
 //	ESTADO DE PROMOCION
 function estado_promocion(estado,id_promocion)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_promociones.php?action=estadoPromocion",
 		data:{

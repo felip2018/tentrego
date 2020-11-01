@@ -34,18 +34,18 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
 	<script>
-		$(document).ready(function () 
+		jQuery(document).ready(function () 
 		{
 			// EVALUAR SI YA HAY UNA SESION INICIADA
 			if (localStorage.acceso != undefined) 
 			{
 				if (localStorage.id_perfil == 1) 
 				{
-					location.href = "adm/";
+					location.href = "app/adm/";
 				}
 				else if (localStorage.id_perfil == 2)
 				{
-					location.href = "user/";
+					location.href = "app/user/";
 				}
 			}
 			else
@@ -67,24 +67,24 @@
 		//	CAMBIAR CLAVE DE USUARIO
 		function cambiar_clave()
 		{
-			$(".modal").modal('toggle');
-			$(".modal-title").html('Cambiar contraseña');
-			$(".modal-body").html('<p>Se te enviará al email un link para poder recuperar tu contraseña. Por favor ingresa el correo electrónico de tu cuenta:</p>'+
+			jQuery(".modal").modal('toggle');
+			jQuery(".modal-title").html('Cambiar contraseña');
+			jQuery(".modal-body").html('<p>Se te enviará al email un link para poder recuperar tu contraseña. Por favor ingresa el correo electrónico de tu cuenta:</p>'+
 				'<input class="form-control" type="text" name="email" id="email"><hr>'+
 				'<div class="alert alert-warning alert_cambio_clave" style="display:none;"></div>'+
 				'<button class="btn btn-primary btn-block modal-btn-accept">Cambiar contraseña</button>');
 
-			$(".modal-footer").html('');
+			jQuery(".modal-footer").html('');
 
-			$(".modal-btn-accept").click(function () {
+			jQuery(".modal-btn-accept").click(function () {
 					
-				$(".alert_cambio_clave").css("display","none");
-				$(".alert_cambio_clave").html("");
+				jQuery(".alert_cambio_clave").css("display","none");
+				jQuery(".alert_cambio_clave").html("");
 
-				var email = $("#email").val();
+				var email = jQuery("#email").val();
 				if (email != '')
 				{
-					$.ajax({
+					jQuery.ajax({
 						type:"POST",
 						url:"vista/ajax/ajax_cambio_clave.php?action=solicitarCambioClave",
 						data:{
@@ -95,22 +95,22 @@
 							var jsonResponse = JSON.parse(response);
 							if (jsonResponse.estado == "success") 
 							{
-								$(".modal-title").html('Solicitud exitosa');
-								$(".modal-body").html('Se ha realizado la solicitud de cambio de clave correctamente, por favor revise su correo electrónico.');
-								$(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
+								jQuery(".modal-title").html('Solicitud exitosa');
+								jQuery(".modal-body").html('Se ha realizado la solicitud de cambio de clave correctamente, por favor revise su correo electrónico.');
+								jQuery(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-								$(".modal-btn-accept").click(function () {
-									$(".modal").modal('toggle');
+								jQuery(".modal-btn-accept").click(function () {
+									jQuery(".modal").modal('toggle');
 								});
 							}
 							else if (jsonResponse.estado == "error") 
 							{
-								$(".modal-title").html('Ha ocurrido un error');
-								$(".modal-body").html(jsonResponse.data);
-								$(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
+								jQuery(".modal-title").html('Ha ocurrido un error');
+								jQuery(".modal-body").html(jsonResponse.data);
+								jQuery(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-								$(".modal-btn-accept").click(function () {
-									$(".modal").modal('toggle');
+								jQuery(".modal-btn-accept").click(function () {
+									jQuery(".modal").modal('toggle');
 								});
 							}
 						}
@@ -118,8 +118,8 @@
 				}
 				else
 				{
-					$(".alert_cambio_clave").css("display","block");
-					$(".alert_cambio_clave").html("Ingrese el email de tu cuenta de <b>Click Store</b>");
+					jQuery(".alert_cambio_clave").css("display","block");
+					jQuery(".alert_cambio_clave").html("Ingrese el email de tu cuenta de <b>Click Store</b>");
 				}
 			});
 

@@ -14,6 +14,7 @@
 		#	SOLICITAR VALIDACION DE USUARIO
 		public function validacionCon($datosUsuario)
 		{
+
 			$respuesta = LoginMod::validacionMod($datosUsuario,"usuarios");
 			
 			if ($respuesta == "sin_registro") 
@@ -22,8 +23,7 @@
 				print json_encode(array("estado" => "sin_registro"));
 			}
 			else
-			{
-				
+			{	
 				if ($datosUsuario['login'] == $respuesta['email'] && $datosUsuario['clave'] == $respuesta['clave'])
 				{
 					//RESETEAMOS EL NUMERO DE INTENTOS

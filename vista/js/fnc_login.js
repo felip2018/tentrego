@@ -1,12 +1,12 @@
 function validar_login() 
 {
-	//var razon_social 	= $("#razon_social");
-	var login 			= $("#login");	
-	var clave			= $("#clave");
+	//var razon_social 	= jQuery("#razon_social");
+	var login 			= jQuery("#login");	
+	var clave			= jQuery("#clave");
 
 	var errores 		= 0;
-	$("#alerta").css("display","none");
-	$("#alerta").html("");
+	jQuery("#alerta").css("display","none");
+	jQuery("#alerta").html("");
 	
 	/*VALIDACION DE CAMPOS DE LOGIN*/
 
@@ -19,8 +19,8 @@ function validar_login()
 
 			if (! expresion.test(login.val())) 
 			{
-				$("#alerta").css("display","block");
-				$("#alerta").html("ERROR: EL usuario ingresado es invalido.<br>");
+				jQuery("#alerta").css("display","block");
+				jQuery("#alerta").html("ERROR: EL usuario ingresado es invalido.<br>");
 			}
 			else
 			{
@@ -28,8 +28,8 @@ function validar_login()
 
 				if (! expresion.test(clave.val())) 
 				{
-					$("#alerta").css("display","block");
-					$("#alerta").html("ERROR: La clave ingresada es invalida.<br>");
+					jQuery("#alerta").css("display","block");
+					jQuery("#alerta").html("ERROR: La clave ingresada es invalida.<br>");
 					
 					bool_clave = false;
 				}
@@ -38,7 +38,7 @@ function validar_login()
 					var form 		= document.querySelector("#form_ingreso");
 					var formData	= new FormData(form);
 
-					$.ajax({
+					jQuery.ajax({
 						type:"POST",
 						url:"vista/ajax/ajax_login.php",
 						data:formData,
@@ -67,28 +67,28 @@ function validar_login()
 
 								if (localStorage.id_perfil == 1) 
 								{
-									location.href = "adm/";
+									location.href = "app/adm/";
 								}
 								else if(localStorage.id_perfil == 2)
 								{
-									location.href = "user/";
+									location.href = "app/user/";
 								}
 
 							}
 							else if(jsonResponse['estado'] == "sin_registro")
 							{
-								$("#alerta").css("display","block");
-								$("#alerta").html("[Error_1]: El usuario ingresado no se encuentra registrado en el sistema.");
+								jQuery("#alerta").css("display","block");
+								jQuery("#alerta").html("[Error_1]: El usuario ingresado no se encuentra registrado en el sistema.");
 							}
 							else if(jsonResponse['estado'] == "error_validacion")
 							{
-								$("#alerta").css("display","block");
-								$("#alerta").html("[Error_2]: El usuario y/o la clave ingresados no coinciden.");
+								jQuery("#alerta").css("display","block");
+								jQuery("#alerta").html("[Error_2]: El usuario y/o la clave ingresados no coinciden.");
 							}
 							else if(jsonResponse['estado'] == "error_cuenta")
 							{
-								$("#alerta").css("display","block");
-								$("#alerta").html("[Error_3]: Has llegado al limite de intentos para iniciar sesion.");
+								jQuery("#alerta").css("display","block");
+								jQuery("#alerta").html("[Error_3]: Has llegado al limite de intentos para iniciar sesion.");
 							}
 						}
 					});
@@ -99,15 +99,15 @@ function validar_login()
 		}
 		else
 		{
-			$("#alerta").css("display","block");
-			$("#alerta").html("Ingrese la clave de usuario");
+			jQuery("#alerta").css("display","block");
+			jQuery("#alerta").html("Ingrese la clave de usuario");
 			clave.focus();
 		}
 	}
 	else
 	{
-		$("#alerta").css("display","block");
-		$("#alerta").html("Ingrese el usuario");	
+		jQuery("#alerta").css("display","block");
+		jQuery("#alerta").html("Ingrese el usuario");	
 		login.focus();
 	}
 	

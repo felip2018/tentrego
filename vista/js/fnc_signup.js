@@ -1,9 +1,9 @@
 //	FUNCION PARA EL REGISTRO DE USUARIOS
 function registrarse()
 {
-	$(".modal").modal("toggle");
-	$(".modal-title").html('Nuevo Usuario');
-	$(".modal-body").html('<form class="col-xs-12" id="form_registro_usuario">'+
+	jQuery(".modal").modal("toggle");
+	jQuery(".modal-title").html('Nuevo Usuario');
+	jQuery(".modal-body").html('<form class="col-xs-12" id="form_registro_usuario">'+
 							'<div class="form-group">'+
 								'<p>Nombres (*)</p>'+
 								'<input class="form-control" type="text" name="nombre" id="nombre" data-name="Nombres">'+
@@ -52,30 +52,30 @@ function registrarse()
 
 	'</form>');
 
-	$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+	jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-	$(".modal-btn-accept").click(function () {
-		var nombre 				= $("#nombre");
-		var apellido 			= $("#apellido");
-		var telefono 			= $("#telefono");
-		var email 				= $("#email");
-		var contrasena 			= $("#contrasena");
-		var repetir_contrasena 	= $("#repetir_contrasena");
-		var terminos 			= $("#terminos_condiciones");
+	jQuery(".modal-btn-accept").click(function () {
+		var nombre 				= jQuery("#nombre");
+		var apellido 			= jQuery("#apellido");
+		var telefono 			= jQuery("#telefono");
+		var email 				= jQuery("#email");
+		var contrasena 			= jQuery("#contrasena");
+		var repetir_contrasena 	= jQuery("#repetir_contrasena");
+		var terminos 			= jQuery("#terminos_condiciones");
 
 		var campos = [nombre,apellido,telefono,email,contrasena,repetir_contrasena];
 		var j = 6;
 		
-		$("#alerta_formulario").html("");
-		$("#alerta_formulario").css("display","none");
+		jQuery("#alerta_formulario").html("");
+		jQuery("#alerta_formulario").css("display","none");
 
 		//	EVALUAR SI LOS CAMPOS DEL FORMULARIO ESTAN VACIOS
 		for (var i = 0; i < campos.length; i++) 
 		{
 			if (campos[i].val() == "") 
 			{
-				$("#alerta_formulario").css("display","block");
-				$("#alerta_formulario").html("El campo '"+campos[i].attr('data-name')+"' es obligatorio.");
+				jQuery("#alerta_formulario").css("display","block");
+				jQuery("#alerta_formulario").html("El campo '"+campos[i].attr('data-name')+"' es obligatorio.");
 				campos[i].focus();
 				break;
 			}
@@ -120,7 +120,7 @@ function registrarse()
 						var form 		= document.getElementById('form_registro_usuario');
 						var formData 	= new FormData(form);
 
-						$.ajax({
+						jQuery.ajax({
 							type:"POST",
 							url:"vista/ajax/ajax_registro.php?action=registrar",
 							data: formData,
@@ -128,28 +128,28 @@ function registrarse()
 							processData:false,
 							success:function (respuesta){
 								
-								$("#espera").css("display","none");
+								jQuery("#espera").css("display","none");
 								console.log(respuesta);
 								var jsonResponse = JSON.parse(respuesta);
 
 								if (jsonResponse.status == "success") 
 								{
-									$(".modal-title").html('Registro exitoso');
-									$(".modal-body").html('Felicidades, el registro se realizo correctamente.<br>Procede a validar tu cuenta desde tu correo electronico.');
-									$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+									jQuery(".modal-title").html('Registro exitoso');
+									jQuery(".modal-body").html('Felicidades, el registro se realizo correctamente.<br>Procede a validar tu cuenta desde tu correo electronico.');
+									jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-									$(".modal-btn-accept").click(function () {
+									jQuery(".modal-btn-accept").click(function () {
 										window.location.reload();
 									});
 								}
 								else if (jsonResponse.status == "registrado") 
 								{
-									$(".modal-title").html('Error de registro');
-									$(".modal-body").html('El correo electrónico ya se encuentra en uso.');
-									$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+									jQuery(".modal-title").html('Error de registro');
+									jQuery(".modal-body").html('El correo electrónico ya se encuentra en uso.');
+									jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-									$(".modal-btn-accept").click(function () {
-										$(".modal").modal('toggle');
+									jQuery(".modal-btn-accept").click(function () {
+										jQuery(".modal").modal('toggle');
 									});
 								}
 								else
@@ -164,24 +164,24 @@ function registrarse()
 					else
 					{
 						console.log("Las claves no coinciden");
-						$("#alerta_formulario").css("display","block");
-						$("#alerta_formulario").html("¡Las contraseñas con coinciden!");
+						jQuery("#alerta_formulario").css("display","block");
+						jQuery("#alerta_formulario").html("¡Las contraseñas con coinciden!");
 					}
 				}
 				else
 				{
 					console.log("No ha aceptado los terminos y condiciones");
-					$("#alerta_formulario").css("display","block");
-					$("#alerta_formulario").html("¿No esta de acuerdo con nuestra politica de términos y condiciones?");
+					jQuery("#alerta_formulario").css("display","block");
+					jQuery("#alerta_formulario").html("¿No esta de acuerdo con nuestra politica de términos y condiciones?");
 				}
 			}
 			else
 			{
 				for (var i = 0; i < errores.length; i++) 
 				{
-					$("#alerta_formulario").css("display","block");
-					$("#alerta_formulario").html("");
-					$("#alerta_formulario").append('> '+errores[i]+'<br>');
+					jQuery("#alerta_formulario").css("display","block");
+					jQuery("#alerta_formulario").html("");
+					jQuery("#alerta_formulario").append('> '+errores[i]+'<br>');
 				}
 			}
 		}

@@ -2,7 +2,7 @@
 function info_agregar_al_carrito(id_producto,nombre_producto,precio_venta,imagen,origen,recomienda) 
 {
 	//console.log("Id Producto -> "+id_producto+"/ Nombre Producto -> "+nombre_producto+"/ $"+precio_venta);
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_carrito.php?action=agregar_producto",
 		data:{
@@ -36,5 +36,5 @@ function info_agregar_al_carrito(id_producto,nombre_producto,precio_venta,imagen
 //	VER IMAGEN MINIATURA GRANDE
 function ver_imagen(imagen)
 {
-	$(".view_img").attr("src","../adm/vista/modulos/productos/imagenes/"+imagen)
+	jQuery(".view_img").attr("src","../adm/vista/modulos/productos/imagenes/"+imagen)
 }

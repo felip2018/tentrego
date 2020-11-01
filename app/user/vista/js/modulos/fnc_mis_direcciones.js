@@ -1,6 +1,6 @@
 function verListaDirecciones()
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/mis_direcciones/listaDirecciones.php",
 		data:{
@@ -8,33 +8,33 @@ function verListaDirecciones()
 			email: 	localStorage.email
 		},
 		success:function (response) {
-			$(".listaDirecciones").html(response);
+			jQuery(".listaDirecciones").html(response);
 		}
 	})
 }
 
 function registrar_direccion()
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/mis_direcciones/registrar_direccion.php",
 		success:function (response) 
 		{
-			$(".modal").modal("toggle");
-			$(".modal-title").html('Registrar nueva dirección');
-			$(".modal-body").html(response);
-			$(".modal-footer").html('');	
-			$("#email").val(localStorage.email);
+			jQuery(".modal").modal("toggle");
+			jQuery(".modal-title").html('Registrar nueva dirección');
+			jQuery(".modal-body").html(response);
+			jQuery(".modal-footer").html('');	
+			jQuery("#email").val(localStorage.email);
 		}
 	});
 }
 
 function buscarCiudades()
 {
-	var id_dpto = $("#id_dpto");
+	var id_dpto = jQuery("#id_dpto");
 	if (id_dpto.val() != "") 
 	{
-		$.ajax({
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_mis_direcciones.php",
 			data:{
@@ -43,7 +43,7 @@ function buscarCiudades()
 			},
 			success:function (response) {
 				//console.log(response);
-				$("#id_ciudad").html(response);
+				jQuery("#id_ciudad").html(response);
 			}
 		})
 	}
@@ -51,25 +51,25 @@ function buscarCiudades()
 
 function salvar_direccion(action)
 {
-	var direccion 	= $("#direccion");
-	var barrio 		= $("#barrio");
-	var indicaciones = $("#indicaciones");
-	var telefono 	= $("#telefono");
-	var id_dpto 	= $("#id_dpto");
-	var id_ciudad 	= $("#id_ciudad");
+	var direccion 	= jQuery("#direccion");
+	var barrio 		= jQuery("#barrio");
+	var indicaciones = jQuery("#indicaciones");
+	var telefono 	= jQuery("#telefono");
+	var id_dpto 	= jQuery("#id_dpto");
+	var id_ciudad 	= jQuery("#id_ciudad");
 
 	var campos = [direccion,barrio,id_dpto,id_ciudad];
 	var j = 4;
 
-	$(".alert_registro_direccion").css("display","none");
-	$(".alert_registro_direccion").html("");
+	jQuery(".alert_registro_direccion").css("display","none");
+	jQuery(".alert_registro_direccion").html("");
 
 	for (var i = 0; i < campos.length; i++) 
 	{
 		if(campos[i].val() == "")
 		{
-			$(".alert_registro_direccion").css("display","block");
-			$(".alert_registro_direccion").html('Diligencie el campo "'+campos[i].attr("data-name")+'" para continuar');
+			jQuery(".alert_registro_direccion").css("display","block");
+			jQuery(".alert_registro_direccion").html('Diligencie el campo "'+campos[i].attr("data-name")+'" para continuar');
 			campos[i].focus();
 			break;
 		}
@@ -84,7 +84,7 @@ function salvar_direccion(action)
 		var form 		= document.getElementById('form_registro_direccion');
 		var formData 	= new FormData(form);
 
-		$.ajax({
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_mis_direcciones.php",
 			data:formData,
@@ -95,24 +95,24 @@ function salvar_direccion(action)
 				var jsonResponse = JSON.parse(response);
 				if (jsonResponse.estado == "registrado") 
 				{
-					$(".modal-title").html('Registro exitoso');
-					$(".modal-body").html('Se ha registrado la dirección correctamente.');
-					$(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html('Registro exitoso');
+					jQuery(".modal-body").html('Se ha registrado la dirección correctamente.');
+					jQuery(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal("toggle");
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal("toggle");
 						loadPage("mis_direcciones");
 					});
 
 				}
 				else if (jsonResponse.estado == "actualizado") 
 				{
-					$(".modal-title").html('Actualizacion exitosa');
-					$(".modal-body").html('Se ha actualizado la dirección correctamente.');
-					$(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html('Actualizacion exitosa');
+					jQuery(".modal-body").html('Se ha actualizado la dirección correctamente.');
+					jQuery(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal("toggle");
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal("toggle");
 						loadPage("mis_direcciones");
 					});
 				}
@@ -127,25 +127,25 @@ function salvar_direccion(action)
 
 function editar_direccion(id_direccion)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/mis_direcciones/editar_direccion.php",
 		data:{
 			id_direccion: id_direccion
 		},
 		success:function (response) {
-			$(".modal").modal("toggle");
-			$(".modal-title").html('Editar dirección');
-			$(".modal-body").html(response);
-			$(".modal-footer").html('');
-			$("#email").val(localStorage.email);
+			jQuery(".modal").modal("toggle");
+			jQuery(".modal-title").html('Editar dirección');
+			jQuery(".modal-body").html(response);
+			jQuery(".modal-footer").html('');
+			jQuery("#email").val(localStorage.email);
 		}
 	})
 }
 
 function estado_direccion(estado,id_direccion)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_mis_direcciones.php",
 		data:{

@@ -1,6 +1,6 @@
 function verInfoUsuario() 
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_inicio.php",
 		data:{
@@ -16,8 +16,8 @@ function verInfoUsuario()
 				var alerta = [];
 				var foto_perfil = (jsonResponse.data['foto'] == "")? "vista/img/sin_imagen.png" : "../adm/vista/modulos/usuarios/fotos/"+jsonResponse.data['foto'];
 
-				$(".informacion_usuario").html('');
-				$(".informacion_usuario").html('<p>Información de Usuario</p>'+
+				jQuery(".informacion_usuario").html('');
+				jQuery(".informacion_usuario").html('<p>Información de Usuario</p>'+
 												'<div class="alert alert-warning alert_info" style="display:none;"></div>'+
 												'<div class="text-center">'+
 													'<img id="foto_perfil" src="'+foto_perfil+'" alt="Foto de Perfil" style="width:200px;height:200px;border-radius:200px;">'+
@@ -47,41 +47,41 @@ function verInfoUsuario()
 												'</form>');
 
 				if (jsonResponse.data['num_identi'] == 0) {
-					$("#num_identi").css("border","1px solid red");
+					jQuery("#num_identi").css("border","1px solid red");
 					//alerta[0] = "Actualiza tu número de identificación.";
 					alerta.push("Actualiza tu número de identificación.");
 				}
 
 				if (jsonResponse.data['telefono'] == "") {
-					$("#telefono").css("border","1px solid red");
+					jQuery("#telefono").css("border","1px solid red");
 					//alerta[1] = "Ingresa tu telefono principal para la confirmación de tus pedidos.";
 					alerta.push("Ingresa tu telefono principal para la confirmación de tus pedidos.");
 				}
 
 				if (jsonResponse.data['direccion'] == "") {
-					$("#direccion").css("border","1px solid red");
+					jQuery("#direccion").css("border","1px solid red");
 					//alerta[2] = "Ingresa tu dirección principal para el envio de tus pedidos.";
 					alerta.push("Ingresa tu dirección principal para el envio de tus pedidos.");
 				}
 
 				if (alerta.length > 0) {
-					$(".alert_info").css("display","block");
+					jQuery(".alert_info").css("display","block");
 					for (var i = 0; i < alerta.length; i++) {
-						$(".alert_info").append("- "+alerta[i]+"<br>");
+						jQuery(".alert_info").append("- "+alerta[i]+"<br>");
 					}
 				}
 
 
-				$(".btn_update_data").click(function () {
+				jQuery(".btn_update_data").click(function () {
 
-					$(".alert_info").css("display","block");
-					$(".alert_info").html("");
+					jQuery(".alert_info").css("display","block");
+					jQuery(".alert_info").html("");
 
-					var nombre 		= $("#nombre");
-					var apellido 	= $("#apellido");
-					var num_identi 	= $("#num_identi");
-					var telefono 	= $("#telefono");
-					var direccion 	= $("#direccion");
+					var nombre 		= jQuery("#nombre");
+					var apellido 	= jQuery("#apellido");
+					var num_identi 	= jQuery("#num_identi");
+					var telefono 	= jQuery("#telefono");
+					var direccion 	= jQuery("#direccion");
 
 					var campos = [nombre,apellido,num_identi,telefono,direccion];
 					var j = 5;
@@ -90,8 +90,8 @@ function verInfoUsuario()
 					{
 						if(campos[i].val() == "")
 						{
-							$(".alert_info").css("display","block");
-							$(".alert_info").html("Diligencie el campo '"+campos[i].attr('data-name')+"' para continuar.");
+							jQuery(".alert_info").css("display","block");
+							jQuery(".alert_info").html("Diligencie el campo '"+campos[i].attr('data-name')+"' para continuar.");
 							campos[i].focus();
 							break;
 						}
@@ -99,8 +99,8 @@ function verInfoUsuario()
 						{
 							if (campos[i] == num_identi && campos[i].val() == '0') 
 							{
-								$(".alert_info").css("display","block");
-								$(".alert_info").html("Ingrese un número de identificación válido.");
+								jQuery(".alert_info").css("display","block");
+								jQuery(".alert_info").html("Ingrese un número de identificación válido.");
 								campos[i].focus();
 								break;		
 							}
@@ -113,17 +113,17 @@ function verInfoUsuario()
 
 					if (j == 0) 
 					{
-						$(".modal").modal("toggle");
-						$(".modal-title").html("Actualización de datos.");
-						$(".modal-body").html("¿Desea actualizar la información básica de su cuenta?");
-						$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+						jQuery(".modal").modal("toggle");
+						jQuery(".modal-title").html("Actualización de datos.");
+						jQuery(".modal-body").html("¿Desea actualizar la información básica de su cuenta?");
+						jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-						$(".modal-btn-accept").click(function () {
+						jQuery(".modal-btn-accept").click(function () {
 
 							var form 		= document.getElementById('form_info_usuario');
 							var formData 	= new FormData(form);
 
-							$.ajax({
+							jQuery.ajax({
 								type:"POST",
 								url:"vista/ajax/ajax_inicio.php",
 								data: formData,
@@ -134,23 +134,23 @@ function verInfoUsuario()
 									var jsonResponse = JSON.parse(response);
 									if (jsonResponse.estado == "actualizado") 
 									{
-										$(".modal-title").html("Actualización exitosa.");
-										$(".modal-body").html("Se ha actualizado la información correctamente.");
-										$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+										jQuery(".modal-title").html("Actualización exitosa.");
+										jQuery(".modal-body").html("Se ha actualizado la información correctamente.");
+										jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-										$(".modal-btn-accept").click(function () {
+										jQuery(".modal-btn-accept").click(function () {
 											location.reload();
 										})
 
 									}
 									else if (jsonResponse.estado == "error") 
 									{
-										$(".modal-title").html("Ha ocurrido un error!");
-										$(".modal-body").html(jsonResponse.data);
-										$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+										jQuery(".modal-title").html("Ha ocurrido un error!");
+										jQuery(".modal-body").html(jsonResponse.data);
+										jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-										$(".modal-btn-accept").click(function () {
-											$(".modal").modal("toggle");
+										jQuery(".modal-btn-accept").click(function () {
+											jQuery(".modal").modal("toggle");
 										});
 									}
 								}
@@ -164,12 +164,12 @@ function verInfoUsuario()
 			}
 			else if (jsonResponse.estado == "vacio") 
 			{
-				$(".modal-title").html("Error de cuenta");
-				$(".modal-body").html("No se ha encontrado información del usuario, inicie sesión nuevamente.");
+				jQuery(".modal-title").html("Error de cuenta");
+				jQuery(".modal-body").html("No se ha encontrado información del usuario, inicie sesión nuevamente.");
 
-				$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$(".modal-btn-accept").click(function() {
+				jQuery(".modal-btn-accept").click(function() {
 					localStorage.removeItem("acceso");
 					localStorage.removeItem("id_tipo_identi");
 					localStorage.removeItem("num_identi");
@@ -188,13 +188,13 @@ function verInfoUsuario()
 			}
 			else if (jsonResponse.estado == "error") 
 			{
-				$(".modal-title").html("¡Ha ocurrido un error!");
-				$(".modal-body").html(jsonResponse.data);
+				jQuery(".modal-title").html("¡Ha ocurrido un error!");
+				jQuery(".modal-body").html(jsonResponse.data);
 
-				$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$(".modal-btn-accept").click(function() {
-					$(".modal").modal('toggle');
+				jQuery(".modal-btn-accept").click(function() {
+					jQuery(".modal").modal('toggle');
 				});
 			}
 		}
@@ -203,7 +203,7 @@ function verInfoUsuario()
 
 function conteoPedidosUsuario() 
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_inicio.php",
 		data:{
@@ -216,7 +216,7 @@ function conteoPedidosUsuario()
 			var jsonResponse = JSON.parse(response);
 			if (jsonResponse.estado == "success") 
 			{
-				$(".pedidos_usuario").html('<p>Pedidos de usuario</p>'+
+				jQuery(".pedidos_usuario").html('<p>Pedidos de usuario</p>'+
 											'<table class="table table-striped">'+
 												'<thead>'+
 													'<tr><th>Estado</th><th>#</th></tr>'+

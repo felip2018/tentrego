@@ -1,6 +1,6 @@
 function crear_resena(id_pedido,id_producto,email)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_mis_resenas.php",
 		data:{
@@ -13,9 +13,9 @@ function crear_resena(id_pedido,id_producto,email)
 			var jsonResponse = JSON.parse(response);
 			if (jsonResponse.estado == "sin resena") 
 			{
-				$(".modal").modal("toggle");
-				$(".modal-title").html("Escribir reseña");
-				$(".modal-body").html('<form id="form_resena_producto">'+
+				jQuery(".modal").modal("toggle");
+				jQuery(".modal-title").html("Escribir reseña");
+				jQuery(".modal-body").html('<form id="form_resena_producto">'+
 										'<b>Calificación del producto</b>'+
 										 ' <p class="clasificacion">'+
 										 '   <input id="radio1" type="radio" name="estrellas" value="5"><label for="radio1">★</label>'+
@@ -31,17 +31,17 @@ function crear_resena(id_pedido,id_producto,email)
 											'<i class="fa fa-save"></i> Salvar reseña'+
 										'</button>'+
 									  '</form>');
-				$(".modal-footer").html('');
+				jQuery(".modal-footer").html('');
 			}
 			else if (jsonResponse.estado == "existe") 
 			{
-				$(".modal").modal("toggle");
-				$(".modal-title").html("Reseña creada");
-				$(".modal-body").html("Ya existe una reseña de este producto para este pedido.<br>¿Deseas editar la reseña creada?");
-				$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal").modal("toggle");
+				jQuery(".modal-title").html("Reseña creada");
+				jQuery(".modal-body").html("Ya existe una reseña de este producto para este pedido.<br>¿Deseas editar la reseña creada?");
+				jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$(".modal-btn-accept").click(function () {
-					$(".modal").modal("toggle");
+				jQuery(".modal-btn-accept").click(function () {
+					jQuery(".modal").modal("toggle");
 					loadPage("mis_resenas");
 				});
 			}
@@ -53,14 +53,14 @@ function crear_resena(id_pedido,id_producto,email)
 function salvar_resena(id_pedido,id_producto,email) 
 {
 	console.log("Salvar Reseña");
-	var resena = $("#resena");
+	var resena = jQuery("#resena");
 
-	$(".alert_resena").css("display","none");
-	$(".alert_resena").html("");
+	jQuery(".alert_resena").css("display","none");
+	jQuery(".alert_resena").html("");
 
 	if (resena.val() != "") 
 	{
-		$.ajax({
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_mis_resenas.php",
 			data:{
@@ -68,7 +68,7 @@ function salvar_resena(id_pedido,id_producto,email)
 				id_pedido: 		id_pedido,
 				id_producto: 	id_producto,
 				email: 			email,
-				calificacion: 	$('input:radio[name=estrellas]:checked').val(),
+				calificacion: 	jQuery('input:radio[name=estrellas]:checked').val(),
 				comentarios: 	resena.val()
 			},
 			success:function (response) {
@@ -76,23 +76,23 @@ function salvar_resena(id_pedido,id_producto,email)
 				var jsonResponse = JSON.parse(response);
 				if (jsonResponse.estado == "registrado") 
 				{
-					$(".modal-title").html("Reseña registrada");
-					$(".modal-body").html("La reseña del producto ha sido registrada correctamente.")
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html("Reseña registrada");
+					jQuery(".modal-body").html("La reseña del producto ha sido registrada correctamente.")
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal("toggle");
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal("toggle");
 						ver_pedido(id_pedido);
 					});
 				}
 				else if (jsonResponse.estado == "error") 
 				{
-					$(".modal-title").html("Ha ocurrido un error");
-					$(".modal-body").html(jsonResponse.data)
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html("Ha ocurrido un error");
+					jQuery(".modal-body").html(jsonResponse.data)
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal("toggle");
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal("toggle");
 					});
 				}
 				else
@@ -104,14 +104,14 @@ function salvar_resena(id_pedido,id_producto,email)
 	}
 	else
 	{
-		$(".alert_resena").css("display","block");
-		$(".alert_resena").html("Ingrese la reseña del producto.");
+		jQuery(".alert_resena").css("display","block");
+		jQuery(".alert_resena").html("Ingrese la reseña del producto.");
 	}
 }
 
 function verListaResenas()
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/mis_resenas/listaResenas.php",
 		data:{
@@ -119,44 +119,44 @@ function verListaResenas()
 			email: 	localStorage.email
 		},
 		success:function (response) {
-			$(".listaResenas").html(response);
+			jQuery(".listaResenas").html(response);
 		}
 	});
 }
 
 function verResena(id_resena)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/mis_resenas/ver_resena.php",
 		data:{
 			id_resena: 	id_resena
 		},
 		success:function (response) {
-			$(".modal").modal("toggle");
-			$(".modal-title").html('Reseña');
-			$(".modal-body").html(response);
-			$(".modal-footer").html('');
+			jQuery(".modal").modal("toggle");
+			jQuery(".modal-title").html('Reseña');
+			jQuery(".modal-body").html(response);
+			jQuery(".modal-footer").html('');
 		}
 	})
 }
 
 function actualizar_resena(id_pedido,id_producto,email)
 {
-	var resena = $("#resena");
+	var resena = jQuery("#resena");
 
-	$(".alert_resena").css("display","none");
-	$(".alert_resena").html("");
+	jQuery(".alert_resena").css("display","none");
+	jQuery(".alert_resena").html("");
 
 	if (resena.val() != "") 
 	{
-		$.ajax({
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_mis_resenas.php",
 			data:{
 				action: 		"actualizarResena",
-				id_resena: 		$("#id_resena").val(),
-				calificacion: 	$('input:radio[name=estrellas]:checked').val(),
+				id_resena: 		jQuery("#id_resena").val(),
+				calificacion: 	jQuery('input:radio[name=estrellas]:checked').val(),
 				comentarios: 	resena.val()
 			},
 			success:function (response) {
@@ -164,23 +164,23 @@ function actualizar_resena(id_pedido,id_producto,email)
 				var jsonResponse = JSON.parse(response);
 				if (jsonResponse.estado == "actualizado") 
 				{
-					$(".modal-title").html("Reseña actualizada");
-					$(".modal-body").html("La reseña del producto ha sido actualizada correctamente.")
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html("Reseña actualizada");
+					jQuery(".modal-body").html("La reseña del producto ha sido actualizada correctamente.")
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal("toggle");
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal("toggle");
 						loadPage("mis_resenas");
 					});
 				}
 				else if (jsonResponse.estado == "error") 
 				{
-					$(".modal-title").html("Ha ocurrido un error");
-					$(".modal-body").html(jsonResponse.data)
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html("Ha ocurrido un error");
+					jQuery(".modal-body").html(jsonResponse.data)
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal("toggle");
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal("toggle");
 					});
 				}
 				else
@@ -192,14 +192,14 @@ function actualizar_resena(id_pedido,id_producto,email)
 	}
 	else
 	{
-		$(".alert_resena").css("display","block");
-		$(".alert_resena").html("Ingrese la reseña del producto.");
+		jQuery(".alert_resena").css("display","block");
+		jQuery(".alert_resena").html("Ingrese la reseña del producto.");
 	}
 }
 
 function estado_resena(estado,id_resena)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_mis_resenas.php",
 		data:{

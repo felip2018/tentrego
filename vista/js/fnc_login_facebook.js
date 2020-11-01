@@ -3,10 +3,10 @@ var scopes = 'email, public_profile';
 
 
   //FUNCIONALIDAD PARA EL BOTON DE LOGIN
-    $(document).on('click','.btn_facebook',function (e) {
-      e.preventDefault();
-      facebookLogin();
-    });
+  jQuery(document).on('click','.btn_facebook',function (e) {
+    e.preventDefault();
+    facebookLogin();
+  });
 
   // This is called with the results from from FB.getLoginStatus().
 	function statusChangeCallback(response) 
@@ -68,7 +68,7 @@ var scopes = 'email, public_profile';
 	{
   	FB.api('/me', 'POST',{fields:'email,first_name,last_name,id'}, function(response) {
         		
-        $.ajax({
+        jQuery.ajax({
           type:"POST",
           url: "vista/ajax/ajax_login_facebook.php",
           data:{
@@ -95,25 +95,25 @@ var scopes = 'email, public_profile';
               switch(jsonResponse.estado_cuenta)
               {
                 case "Inactivo":
-                  $(".modal").modal("toggle");
-                  $(".modal-title").html("Cuenta Inactiva");
-                  $(".modal-body").html("Su cuenta se encuentra inactiva, proceda a activarla siguiendo el enlace de validación que enviamos a su correo electrónico");
-                  $(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+                  jQuery(".modal").modal("toggle");
+                  jQuery(".modal-title").html("Cuenta Inactiva");
+                  jQuery(".modal-body").html("Su cuenta se encuentra inactiva, proceda a activarla siguiendo el enlace de validación que enviamos a su correo electrónico");
+                  jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-                  $("modal-btn-accept").on("click",function () {
-                    $(".modal").modal("toggle");
+                  jQuery("modal-btn-accept").on("click",function () {
+                    jQuery(".modal").modal("toggle");
                   });
 
                   break;
 
                 case "Bloqueado":
-                  $(".modal").modal("toggle");
-                  $(".modal-title").html("Cuenta Bloqueada");
-                  $(".modal-body").html("Se ha presentado un intento de violar la privacidad de su cuenta, por favor dirijase a su correo electrónico para reestablecer la integridad de su cuenta.");
-                  $(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+                  jQuery(".modal").modal("toggle");
+                  jQuery(".modal-title").html("Cuenta Bloqueada");
+                  jQuery(".modal-body").html("Se ha presentado un intento de violar la privacidad de su cuenta, por favor dirijase a su correo electrónico para reestablecer la integridad de su cuenta.");
+                  jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-                  $("modal-btn-accept").on("click",function () {
-                    $(".modal").modal("toggle");
+                  jQuery("modal-btn-accept").on("click",function () {
+                    jQuery(".modal").modal("toggle");
                   });
                   break;
               }
@@ -129,7 +129,7 @@ var scopes = 'email, public_profile';
 
 function logInFacebook(email) 
 {
-  $.ajax({
+  jQuery.ajax({
     type:"POST",
     url:"vista/ajax/ajax_login_facebook.php",
     data:{
@@ -145,13 +145,13 @@ function logInFacebook(email)
 
         if (jsonResponse.data['intentos'] == 3 && jsonResponse.data['estado'] == "Bloqueado") 
         {
-          $(".modal").modal("toggle");
-          $(".modal-title").html("Alerta de seguridad");
-          $(".modal-body").html("No es posible iniciar sesión, tu cuenta se encuentra bloqueada debido a un intento de violación de seguridad al tratar de acceder a tu cuenta. Por favor dirijase a su correo electrónico para restablecer la integridad de su cuenta.");
-          $(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+          jQuery(".modal").modal("toggle");
+          jQuery(".modal-title").html("Alerta de seguridad");
+          jQuery(".modal-body").html("No es posible iniciar sesión, tu cuenta se encuentra bloqueada debido a un intento de violación de seguridad al tratar de acceder a tu cuenta. Por favor dirijase a su correo electrónico para restablecer la integridad de su cuenta.");
+          jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-          $(".modal-btn-accept").on("click",function () {
-            $(".modal").modal("toggle");
+          jQuery(".modal-btn-accept").on("click",function () {
+            jQuery(".modal").modal("toggle");
             location.reload();
           });
 
@@ -184,13 +184,13 @@ function logInFacebook(email)
       }
       else if(jsonResponse['estado'] == "error")
       {
-        $(".modal").modal("toggle");
-        $(".modal-title").html("Ha ocurrido un errror");
-        $(".modal-body").html(jsonResponse['data']);
-        $(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+        jQuery(".modal").modal("toggle");
+        jQuery(".modal-title").html("Ha ocurrido un errror");
+        jQuery(".modal-body").html(jsonResponse['data']);
+        jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-        $(".modal-btn-accept").on("click",function () {
-          $(".modal").modal("toggle");
+        jQuery(".modal-btn-accept").on("click",function () {
+          jQuery(".modal").modal("toggle");
         });
       }
     }
@@ -199,9 +199,9 @@ function logInFacebook(email)
 
 function signUpFacebook(response) {
     
-  $(".modal").modal("toggle");
-  $(".modal-title").html('Nuevo Usuario');
-  $(".modal-body").html('<form class="col-xs-12" id="form_registro_usuario">'+
+  jQuery(".modal").modal("toggle");
+  jQuery(".modal-title").html('Nuevo Usuario');
+  jQuery(".modal-body").html('<form class="col-xs-12" id="form_registro_usuario">'+
               '<div class="form-group">'+
                 '<p>Nombres (*)</p>'+
                 '<input class="form-control" type="text" name="nombre" id="nombre" data-name="Nombres">'+
@@ -250,37 +250,37 @@ function signUpFacebook(response) {
 
   '</form>');
 
-  $(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+  jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
   //  LLENAR CAMPOS CON DATOS TRAIDOS DE FACEBOOK
-  $("#form_registro_usuario #nombre").val(response.first_name);
-  $("#form_registro_usuario #apellido").val(response.last_name);
-  $("#form_registro_usuario #email").val(response.email);
-  $("#form_registro_usuario #contrasena").val('');
-  $("#form_registro_usuario #repetir_contrasena").val('');
+  jQuery("#form_registro_usuario #nombre").val(response.first_name);
+  jQuery("#form_registro_usuario #apellido").val(response.last_name);
+  jQuery("#form_registro_usuario #email").val(response.email);
+  jQuery("#form_registro_usuario #contrasena").val('');
+  jQuery("#form_registro_usuario #repetir_contrasena").val('');
 
-  $(".modal-btn-accept").click(function () {
-    var nombre              = $("#nombre");
-    var apellido            = $("#apellido");
-    var telefono            = $("#telefono");
-    var email               = $("#email");
-    var contrasena          = $("#contrasena");
-    var repetir_contrasena  = $("#repetir_contrasena");
-    var terminos            = $("#terminos_condiciones");
+  jQuery(".modal-btn-accept").click(function () {
+    var nombre              = jQuery("#nombre");
+    var apellido            = jQuery("#apellido");
+    var telefono            = jQuery("#telefono");
+    var email               = jQuery("#email");
+    var contrasena          = jQuery("#contrasena");
+    var repetir_contrasena  = jQuery("#repetir_contrasena");
+    var terminos            = jQuery("#terminos_condiciones");
 
     var campos = [nombre,apellido,telefono,email,contrasena,repetir_contrasena];
     var j = 6;
     
-    $("#alerta_formulario").html("");
-    $("#alerta_formulario").css("display","none");
+    jQuery("#alerta_formulario").html("");
+    jQuery("#alerta_formulario").css("display","none");
 
     //  EVALUAR SI LOS CAMPOS DEL FORMULARIO ESTAN VACIOS
     for (var i = 0; i < campos.length; i++) 
     {
       if (campos[i].val() == "") 
       {
-        $("#alerta_formulario").css("display","block");
-        $("#alerta_formulario").html("El campo '"+campos[i].attr('data-name')+"' es obligatorio.");
+        jQuery("#alerta_formulario").css("display","block");
+        jQuery("#alerta_formulario").html("El campo '"+campos[i].attr('data-name')+"' es obligatorio.");
         campos[i].focus();
         break;
       }
@@ -325,7 +325,7 @@ function signUpFacebook(response) {
             var form    = document.getElementById('form_registro_usuario');
             var formData  = new FormData(form);
 
-            $.ajax({
+            jQuery.ajax({
               type:"POST",
               url:"vista/ajax/ajax_registro.php?action=registrar",
               data: formData,
@@ -333,28 +333,28 @@ function signUpFacebook(response) {
               processData:false,
               success:function (respuesta){
                 
-                $("#espera").css("display","none");
+                jQuery("#espera").css("display","none");
                 console.log(respuesta);
                 var jsonResponse = JSON.parse(respuesta);
 
                 if (jsonResponse.status == "success") 
                 {
-                  $(".modal-title").html('Registro exitoso');
-                  $(".modal-body").html('Felicidades, el registro se realizo correctamente.<br>Procede a validar tu cuenta desde tu correo electronico.');
-                  $(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+                  jQuery(".modal-title").html('Registro exitoso');
+                  jQuery(".modal-body").html('Felicidades, el registro se realizo correctamente.<br>Procede a validar tu cuenta desde tu correo electronico.');
+                  jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-                  $(".modal-btn-accept").click(function () {
+                  jQuery(".modal-btn-accept").click(function () {
                     window.location.reload();
                   });
                 }
                 else if (jsonResponse.status == "registrado") 
                 {
-                  $(".modal-title").html('Error de registro');
-                  $(".modal-body").html('El correo electrónico ya se encuentra en uso.');
-                  $(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+                  jQuery(".modal-title").html('Error de registro');
+                  jQuery(".modal-body").html('El correo electrónico ya se encuentra en uso.');
+                  jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-                  $(".modal-btn-accept").click(function () {
-                    $(".modal").modal('toggle');
+                  jQuery(".modal-btn-accept").click(function () {
+                    jQuery(".modal").modal('toggle');
                   });
                 }
                 else
@@ -369,24 +369,24 @@ function signUpFacebook(response) {
           else
           {
             console.log("Las claves no coinciden");
-            $("#alerta_formulario").css("display","block");
-            $("#alerta_formulario").html("¡Las contraseñas con coinciden!");
+            jQuery("#alerta_formulario").css("display","block");
+            jQuery("#alerta_formulario").html("¡Las contraseñas con coinciden!");
           }
         }
         else
         {
           console.log("No ha aceptado los terminos y condiciones");
-          $("#alerta_formulario").css("display","block");
-          $("#alerta_formulario").html("¿No esta de acuerdo con nuestra politica de términos y condiciones?");
+          jQuery("#alerta_formulario").css("display","block");
+          jQuery("#alerta_formulario").html("¿No esta de acuerdo con nuestra politica de términos y condiciones?");
         }
       }
       else
       {
         for (var i = 0; i < errores.length; i++) 
         {
-          $("#alerta_formulario").css("display","block");
-          $("#alerta_formulario").html("");
-          $("#alerta_formulario").append('> '+errores[i]+'<br>');
+          jQuery("#alerta_formulario").css("display","block");
+          jQuery("#alerta_formulario").html("");
+          jQuery("#alerta_formulario").append('> '+errores[i]+'<br>');
         }
       }
     }
@@ -402,12 +402,12 @@ function signUpFacebook(response) {
     //LLENADO DE CAMPOS DE FORMULARIO DE RGISTRO AUTOMATICAMENTE
     var username = response.email.split("@");
 
-    $("#signup_form #first_name").val(response.first_name);
-    $("#signup_form #last_name").val(response.last_name);
-    $("#signup_form #email").val(response.email);
-    $("#signup_form #username").val(username[0]);
-    $("#signup_form #password").val('');
-    $("#signup_form #password2").val('');
+    jQuery("#signup_form #first_name").val(response.first_name);
+    jQuery("#signup_form #last_name").val(response.last_name);
+    jQuery("#signup_form #email").val(response.email);
+    jQuery("#signup_form #username").val(username[0]);
+    jQuery("#signup_form #password").val('');
+    jQuery("#signup_form #password2").val('');
 
     jQuery("#signup_form").on("submit", function(e) {
     e.preventDefault();
@@ -427,13 +427,13 @@ function signUpFacebook(response) {
 
     //VALIDAR CORREO ELECTRONICO
     var validate_email = validateInput('email',jQuery("#signup_form #email").val());
-    if ($("#validate_email").val() != "permitido") {
+    if (jQuery("#validate_email").val() != "permitido") {
       error += "<br><b>Email</b>: El Email ingresado ya se encuentra en uso.";
     }
 
     //VALIDAR NOMBRE DE USUARIO
     var validate_username = validateInput('username',jQuery("#signup_form #username").val());
-    if ($("#validate_username").val() != "permitido") {
+    if (jQuery("#validate_username").val() != "permitido") {
       error += "<br><b>Nombre de Usuario</b>: El Nombre de Usuario ingresado ya esta en uso, intente uno diferente.";         
     }
 

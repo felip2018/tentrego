@@ -1,6 +1,6 @@
 function verListaPedidos() 
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/pedidos/lista_pedidos.php",
 		data:{
@@ -8,11 +8,11 @@ function verListaPedidos()
 			email: localStorage.email
  		},
  		success:function (response) {
- 			$(".listaPedidos").html(response);
+ 			jQuery(".listaPedidos").html(response);
  			/*var jsonResponse = JSON.parse(response);
  			if (jsonResponse.estado == "success") 
  			{
- 				$.each(jsonResponse.data,function (index,value) {
+ 				jQuery.each(jsonResponse.data,function (index,value) {
 
  					var colorEstado;
 
@@ -26,7 +26,7 @@ function verListaPedidos()
  						colorEstado = "#27ae60";
  					}
 
- 					$(".listaPedidos").append('<tr>'+
+ 					jQuery(".listaPedidos").append('<tr>'+
  												'<td>'+value['id_pedido']+'</td>'+
  												'<td>'+value['codigo_pedido']+'</td>'+
  												'<td>'+value['fecha']+'</td>'+
@@ -40,7 +40,7 @@ function verListaPedidos()
  			}
  			else if(jsonResponse.estado == "vacio")
  			{
- 				$(".listaPedidos").html('<tr><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>');
+ 				jQuery(".listaPedidos").html('<tr><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>');
  			}
  			else
  			{
@@ -52,14 +52,14 @@ function verListaPedidos()
 
 function ver_pedido(id_pedido)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/pedidos/ver_pedido.php",
 		data:{
 			id_pedido: id_pedido
 		},
 		success:function (response) {
-			$("#vista").html(response);
+			jQuery("#vista").html(response);
 		}
 	})
 }

@@ -1,5 +1,5 @@
 //	VALIDACION DE INICIO DE SESION
-$(document).ready(function () {
+jQuery(document).ready(function () {
 	if (localStorage.acceso == '1') 
 	{
 		//	VALIDAR PERFIL DE USUARIO
@@ -74,32 +74,32 @@ function mostrar_menu(evento)
 	{
 		case 'ver':
 			
-			$(".menu-movil").removeClass("ocultar");
-			$(".menu-movil").addClass("ver");
+			jQuery(".menu-movil").removeClass("ocultar");
+			jQuery(".menu-movil").addClass("ver");
 			break;
 
 		case 'ocultar':
 
-			$(".menu-movil").addClass("ocultar");
-			$(".menu-movil").removeClass("ver");
+			jQuery(".menu-movil").addClass("ocultar");
+			jQuery(".menu-movil").removeClass("ver");
 			
 			break;
 	}
 }
 
 function verOpcionesMenu(opciones) {
-	$("#"+opciones).toggle('fast');
+	jQuery("#"+opciones).toggle('fast');
 }
 
 function cerrar_sesion()
 {
-	$(".modal").modal('toggle');
-	$(".modal-title").html("Cerrar Sesión");
-	$(".modal-body").html("Desea salir del sistema en este momento?");
+	jQuery(".modal").modal('toggle');
+	jQuery(".modal-title").html("Cerrar Sesión");
+	jQuery(".modal-body").html("Desea salir del sistema en este momento?");
 
-	$(".modal-footer").html('<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+	jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-	$(".modal-btn-accept").on('click',function () {		
+	jQuery(".modal-btn-accept").on('click',function () {		
 		$.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_inicio.php",
@@ -129,25 +129,25 @@ function cerrar_sesion()
 					localStorage.removeItem("perfil");
 					localStorage.removeItem("sesion");
 
-					$(".modal-title").html("Has finalizado la sesión");
-					$(".modal-body").html("Tu sesión se ha finalizado correctamente!");
+					jQuery(".modal-title").html("Has finalizado la sesión");
+					jQuery(".modal-body").html("Tu sesión se ha finalizado correctamente!");
 
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function() {
+					jQuery(".modal-btn-accept").click(function() {
 						location.href = "../index.php";
 					});
 				}
 				else
 				{
-					$(".modal-title").html("¡Ha ocurrido un error!");
-					$(".modal-body").html(res["data"]);
+					jQuery(".modal-title").html("¡Ha ocurrido un error!");
+					jQuery(".modal-body").html(res["data"]);
 
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
 
-					$(".modal-btn-accept").click(function() {
-						$(".modal").modal('toggle');
+					jQuery(".modal-btn-accept").click(function() {
+						jQuery(".modal").modal('toggle');
 					});
 				}
 			}
@@ -158,14 +158,14 @@ function cerrar_sesion()
 /*CARGAR PAGINA SOLICITADA*/
 function loadPage(page) 
 {
-	$("#vista").load("vista/modulos/"+page+"/"+page+".php");
+	jQuery("#vista").load("vista/modulos/"+page+"/"+page+".php");
 }
 
 //	INFORMACION DE PERFIL DE USUARIO
 function info_usuario()
 {
-	$(".modal").modal("toggle");
-	$(".modal-title").html('Información de Usuario');
-	$(".modal-body").html('');
-	$(".modal-footer").html('');
+	jQuery(".modal").modal("toggle");
+	jQuery(".modal-title").html('Información de Usuario');
+	jQuery(".modal-body").html('');
+	jQuery(".modal-footer").html('');
 }

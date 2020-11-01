@@ -1,11 +1,11 @@
 //	VER CARRITO DE COMPRAS
 function verCarritoCompras()
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_carrito.php?action=ver_carrito",
 		success:function (response) {
-			$(".cart-view").html(response);
+			jQuery(".cart-view").html(response);
 		}
 	});
 }
@@ -13,7 +13,7 @@ function verCarritoCompras()
 //	FUNCION PARA ELIMINAR PRODUCTO DEL CARRITO DE COMPRAS
 function eliminar_producto(indice)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_carrito.php?action=eliminar_producto",
 		data:('indice='+indice)
@@ -35,7 +35,7 @@ function eliminar_producto(indice)
 //	FUNCION PARA ACTUALIZAR LA CANTIDAD DE PRODUCTO
 function cambiar_valor(indice,cantidad)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_carrito.php?action=cambiar_cantidad",
 		data:('indice='+indice+'&cantidad='+cantidad)
@@ -56,7 +56,7 @@ function cambiar_valor(indice,cantidad)
 /*FUNCION PARA INVOCAR EL BORRADO DE LOS DATOS DEL CARRITO DE COMPRA*/
 function vaciar_carrito_compra()
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_carrito.php?action=vaciar_carrito"
 	}).done(function(respuesta){
@@ -70,14 +70,14 @@ function vaciar_carrito_compra()
 //	REALIZAR PEDIDO
 function realizar_pedido()
 {
-	$(".modal").modal("toggle");
-	$(".modal-title").html("Confirmar pedido.");
-	$(".modal-body").html("¿Esta seguro de realizar el pedido?");
-	$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+	jQuery(".modal").modal("toggle");
+	jQuery(".modal-title").html("Confirmar pedido.");
+	jQuery(".modal-body").html("¿Esta seguro de realizar el pedido?");
+	jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-	$(".modal-btn-accept").click(function () {
-		var observaciones = $("#observaciones");
-		$.ajax({
+	jQuery(".modal-btn-accept").click(function () {
+		var observaciones = jQuery("#observaciones");
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_carrito.php?action=realizar_pedido",
 			data:{
@@ -89,12 +89,12 @@ function realizar_pedido()
 				var jsonResponse = JSON.parse(response);
 				if (jsonResponse.estado == "success") 
 				{
-					$(".modal-title").html("Pedido exitoso");
-					$(".modal-body").html("Se ha realizado el pedido correctamente, dirijase a la sección 'Mis pedidos' para realizar el pago.");
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html("Pedido exitoso");
+					jQuery(".modal-body").html("Se ha realizado el pedido correctamente, dirijase a la sección 'Mis pedidos' para realizar el pago.");
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal("toggle");
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal("toggle");
 						vaciar_carrito_compra();
 						loadPage('mis_pedidos');
 					});
@@ -102,12 +102,12 @@ function realizar_pedido()
 				}
 				else
 				{
-					$(".modal-title").html(jsonResponse.estado);
-					$(".modal-body").html(jsonResponse.data);
-					$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery(".modal-title").html(jsonResponse.estado);
+					jQuery(".modal-body").html(jsonResponse.data);
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal("toggle");
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal("toggle");
 					});
 				}
 			}

@@ -1,10 +1,10 @@
 //	BUSCAR LISTA DE CLASIFICACION DE PRODUCTO POR CATEGORIA SELECCIONADA
 function buscarClasificaciones()
 {
-	var id_categoria = $("#id_categoria");
+	var id_categoria = jQuery("#id_categoria");
 	if (id_categoria.val() != "") 
 	{
-		$.ajax({
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_tienda.php?action=buscarClasificacion",
 			data:{
@@ -15,11 +15,11 @@ function buscarClasificaciones()
 				var jsonResponse = JSON.parse(response);
 				if (jsonResponse.estado == "ok") 
 				{
-					$("#id_clasificacion").html('<option value="">-Seleccione la clasificación del producto</option>');
-					$("#id_clasificacion").removeAttr("disabled");
-					$.each(jsonResponse.data,function (key,value) {
+					jQuery("#id_clasificacion").html('<option value="">-Seleccione la clasificación del producto</option>');
+					jQuery("#id_clasificacion").removeAttr("disabled");
+					jQuery.each(jsonResponse.data,function (key,value) {
 						//console.log("Key: "+key+" | Value: "+value);
-						$("#id_clasificacion").append('<option value="'+value['id_clasificacion']+'">'+value['nombre']+'</option>');
+						jQuery("#id_clasificacion").append('<option value="'+value['id_clasificacion']+'">'+value['nombre']+'</option>');
 					})
 				}
 			}
@@ -30,7 +30,7 @@ function buscarClasificaciones()
 //	FILTRO DE PRODUCTOS POR CATEGORIA SELECCIONADA
 function filtro_productos(id_categoria)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_tienda.php?action=filtro",
 		data:('id_categoria='+id_categoria)
@@ -42,8 +42,8 @@ function filtro_productos(id_categoria)
 		{
 			lista_categorias(id_categoria);
 
-			$(".view_products").html('');
-			$.each(jsonResponse.data,function (key,value) {
+			jQuery(".view_products").html('');
+			jQuery.each(jsonResponse.data,function (key,value) {
 				
 				var imagen = (value['imagen'] == '') ? "sin_imagen.png" : value['imagen'];
 				var nombre_producto = value['nombre'].replace(/ /g,'_');
@@ -59,7 +59,7 @@ function filtro_productos(id_categoria)
 					var venta = value['promocion'];
 				}
 
-				$(".view_products").append('<div class="col-xs-12 col-md-3">'+
+				jQuery(".view_products").append('<div class="col-xs-12 col-md-3">'+
 												'<div class="contenedor_producto">'+
 												  	'<img class="card-img-top" src="../adm/vista/modulos/productos/imagenes/'+imagen+'" alt="'+value['nombre']+'" width="100%" height="auto">'+
 												  	'<div class="card-body text-left">'+
@@ -79,14 +79,14 @@ function filtro_productos(id_categoria)
 		}
 		else
 		{
-			$(".view_products").html('');
+			jQuery(".view_products").html('');
 		}
 	});
 }
 
 //	LISTA DE CLASIFICACION POR CATEGORIA
 function lista_categorias(id_categoria) {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_tienda.php?action=buscarClasificacion",
 		data:('id_categoria='+id_categoria)
@@ -95,9 +95,9 @@ function lista_categorias(id_categoria) {
 		var jsonResponse = JSON.parse(response);
 		if (jsonResponse.estado == "ok") 
 		{
-			$(".view_clasifications").html('');
-			$.each(jsonResponse.data,function (key,value) {
-				$(".view_clasifications").append('<button class="btn btn-success m-1" onclick="filtro_productos_clasificacion('+value['id_clasificacion']+','+id_categoria+')">'+value['nombre']+
+			jQuery(".view_clasifications").html('');
+			jQuery.each(jsonResponse.data,function (key,value) {
+				jQuery(".view_clasifications").append('<button class="btn btn-success m-1" onclick="filtro_productos_clasificacion('+value['id_clasificacion']+','+id_categoria+')">'+value['nombre']+
 												 '</button>');
 			});
 		}
@@ -107,7 +107,7 @@ function lista_categorias(id_categoria) {
 //	FILTRO DE PRODUCTOS POR CLASIFICACION SELECCIONADA
 function filtro_productos_clasificacion(id_clasificacion,id_categoria)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_tienda.php?action=filtro_clasificacion",
 		data:('id_categoria='+id_categoria+'&id_clasificacion='+id_clasificacion)
@@ -119,8 +119,8 @@ function filtro_productos_clasificacion(id_clasificacion,id_categoria)
 		{
 			lista_categorias(id_categoria);
 
-			$(".view_products").html('');
-			$.each(jsonResponse.data,function (key,value) {
+			jQuery(".view_products").html('');
+			jQuery.each(jsonResponse.data,function (key,value) {
 
 				var id_producto = value['id_producto'];
 				var imagen = (value['imagen'] == '') ? "sin_imagen.png" : value['imagen'];
@@ -137,7 +137,7 @@ function filtro_productos_clasificacion(id_clasificacion,id_categoria)
 					var venta = value['promocion'];
 				}
 
-				$(".view_products").append('<div class="col-xs-12 col-md-3">'+
+				jQuery(".view_products").append('<div class="col-xs-12 col-md-3">'+
 												'<div class="contenedor_producto">'+
 												  	'<img class="card-img-top" src="../adm/vista/modulos/productos/imagenes/'+imagen+'" alt="'+value['nombre']+'" width="100%" height="auto">'+
 												  	'<div class="card-body text-left">'+
@@ -157,7 +157,7 @@ function filtro_productos_clasificacion(id_clasificacion,id_categoria)
 		}
 		else
 		{
-			$(".view_products").html('');
+			jQuery(".view_products").html('');
 		}
 	});
 }
@@ -166,7 +166,7 @@ function filtro_productos_clasificacion(id_clasificacion,id_categoria)
 function agregar_al_carrito(id_producto,nombre_producto,precio_venta,imagen) 
 {
 	//console.log("Id Producto -> "+id_producto+"/ Nombre Producto -> "+nombre_producto+"/ $"+precio_venta);
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_carrito.php?action=agregar_producto",
 		data:{
@@ -198,14 +198,14 @@ function agregar_al_carrito(id_producto,nombre_producto,precio_venta,imagen)
 //	INFORMACION DEL PRODUCTO
 function info_producto(id_producto)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/tienda/info_producto.php",
 		data:{
 			id_producto: id_producto
 		},
 		success:function (response) {
-			$("#vista").html(response);
+			jQuery("#vista").html(response);
 		}
 	})
 }

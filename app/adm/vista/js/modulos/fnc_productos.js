@@ -1,18 +1,18 @@
 //	VER FORMULARIO DE REGISTRO DE PRODUCTO
 function nuevo_producto()
 {
-	//$("#panel_animado").css("display","block");
-	//$("#contenido_animado").load("vista/modulos/productos/nuevo_producto.php");
-	$("#contenido_productos").load("vista/modulos/productos/nuevo_producto.php");
+	//jQuery("#panel_animado").css("display","block");
+	//jQuery("#contenido_animado").load("vista/modulos/productos/nuevo_producto.php");
+	jQuery("#contenido_productos").load("vista/modulos/productos/nuevo_producto.php");
 }
 
 //	BUSCAR LISTA DE CLASIFICACION DE PRODUCTO POR CATEGORIA SELECCIONADA
 function buscarClasificaciones()
 {
-	var id_categoria = $("#id_categoria");
+	var id_categoria = jQuery("#id_categoria");
 	if (id_categoria.val() != "") 
 	{
-		$.ajax({
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_productos.php?action=buscarClasificacion",
 			data:{
@@ -23,11 +23,11 @@ function buscarClasificaciones()
 				var jsonResponse = JSON.parse(response);
 				if (jsonResponse.estado == "ok") 
 				{
-					$("#id_clasificacion").html('<option value="">-Seleccione la clasificación del producto</option>');
-					$("#id_clasificacion").removeAttr("disabled");
-					$.each(jsonResponse.data,function (key,value) {
+					jQuery("#id_clasificacion").html('<option value="">-Seleccione la clasificación del producto</option>');
+					jQuery("#id_clasificacion").removeAttr("disabled");
+					jQuery.each(jsonResponse.data,function (key,value) {
 						//console.log("Key: "+key+" | Value: "+value);
-						$("#id_clasificacion").append('<option value="'+value['id_clasificacion']+'">'+value['nombre']+'</option>');
+						jQuery("#id_clasificacion").append('<option value="'+value['id_clasificacion']+'">'+value['nombre']+'</option>');
 					})
 				}
 			}
@@ -38,9 +38,9 @@ function buscarClasificaciones()
 //	CALCULAR PRECIO DE VENTA
 function calcularVenta()
 {
-	var costo 		= $("#costo");
-	var utilidad  	= $("#utilidad");
-	var venta  		= $("#venta");
+	var costo 		= jQuery("#costo");
+	var utilidad  	= jQuery("#utilidad");
+	var venta  		= jQuery("#venta");
 
 	if (costo.val() != "") 
 	{
@@ -66,9 +66,9 @@ function calcularVenta()
 // 	CALCULAR PORCENTAJE DE UTILIDAD
 function calcularUtilidad()
 {
-	var costo 		= $("#costo");
-	var utilidad  	= $("#utilidad");
-	var venta  		= $("#venta");
+	var costo 		= jQuery("#costo");
+	var utilidad  	= jQuery("#utilidad");
+	var venta  		= jQuery("#venta");
 
 	if (costo.val() != "") 
 	{
@@ -94,27 +94,27 @@ function calcularUtilidad()
 //	VALIDACION DE FORMULARIO DE REGISTRO
 function salvar_producto(action)
 {
-	var nombre 				= $("#nombre");
-	var id_marca 			= $("#id_marca");
-	var id_categoria 		= $("#id_categoria");
-	var id_clasificacion 	= $("#id_clasificacion");
-	var cantidad 			= $("#cantidad");
-	var id_unidad 			= $("#id_unidad");
-	var costo 				= $("#costo");
-	var utilidad 			= $("#utilidad");
-	var venta 				= $("#venta");
+	var nombre 				= jQuery("#nombre");
+	var id_marca 			= jQuery("#id_marca");
+	var id_categoria 		= jQuery("#id_categoria");
+	var id_clasificacion 	= jQuery("#id_clasificacion");
+	var cantidad 			= jQuery("#cantidad");
+	var id_unidad 			= jQuery("#id_unidad");
+	var costo 				= jQuery("#costo");
+	var utilidad 			= jQuery("#utilidad");
+	var venta 				= jQuery("#venta");
 
 	var campos = [nombre,id_marca,id_categoria,id_clasificacion,cantidad,id_unidad,costo,utilidad,venta];
 	var j = 9;	
 
-	$("#alert_registro").css('display','none');
-	$("#alert_registro").html('');
+	jQuery("#alert_registro").css('display','none');
+	jQuery("#alert_registro").html('');
 
 	for (var i = 0; i < campos.length; i++) 
 	{
 		if(campos[i].val() == ''){
-			$("#alert_registro").css('display','block');
-			$("#alert_registro").html("El campo '"+campos[i].attr('data-name')+"' Es obligatorio.");
+			jQuery("#alert_registro").css('display','block');
+			jQuery("#alert_registro").html("El campo '"+campos[i].attr('data-name')+"' Es obligatorio.");
 			campos[i].focus();
 			break;
 		}
@@ -130,16 +130,16 @@ function salvar_producto(action)
 		{
 			case 'registrar':
 
-				$(".modal").modal('toggle');
-				$('.modal-title').html('¿Desea registrar el producto en el sistema?');
-				$(".modal-body").html('Click en <b>Aceptar</b> para realizar el registro.');
-				$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal").modal('toggle');
+				jQuery('.modal-title').html('¿Desea registrar el producto en el sistema?');
+				jQuery(".modal-body").html('Click en <b>Aceptar</b> para realizar el registro.');
+				jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$('.modal-btn-accept').on('click',function () {
+				jQuery('.modal-btn-accept').on('click',function () {
 					var form 		= document.getElementById('form_registro_producto');
 					var formData 	= new FormData(form);
 
-					$.ajax({
+					jQuery.ajax({
 						type:"POST",
 						url:"vista/ajax/ajax_productos.php?action=registrar",
 						data:formData,
@@ -150,24 +150,24 @@ function salvar_producto(action)
 							var jsonResponse = JSON.parse(response);
 							if (jsonResponse.estado == "registrado") 
 							{
-								$('.modal-title').html('Registro exitoso');
-								$(".modal-body").html('El producto ha sido registrado en el sistema correctamente');
-								$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+								jQuery('.modal-title').html('Registro exitoso');
+								jQuery(".modal-body").html('El producto ha sido registrado en el sistema correctamente');
+								jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-								$(".modal-btn-accept").click(function () {
-									$(".modal").modal('toggle');
-									$("#panel_animado").css("display","none");
+								jQuery(".modal-btn-accept").click(function () {
+									jQuery(".modal").modal('toggle');
+									jQuery("#panel_animado").css("display","none");
 									loadPage('productos');
 								});
 							}
 							else if (jsonResponse.estado == "error") 
 							{
-								$('.modal-title').html('Ha ocurrido un error!');
-								$(".modal-body").html(jsonResponse.data);
-								$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+								jQuery('.modal-title').html('Ha ocurrido un error!');
+								jQuery(".modal-body").html(jsonResponse.data);
+								jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-								$(".modal-btn-accept").click(function () {
-									$(".modal").modal('toggle');
+								jQuery(".modal-btn-accept").click(function () {
+									jQuery(".modal").modal('toggle');
 								});
 							}
 						}
@@ -178,16 +178,16 @@ function salvar_producto(action)
 
 			case 'actualizar':
 
-				$(".modal").modal('toggle');
-				$('.modal-title').html('¿Desea actualizar el producto en el sistema?');
-				$(".modal-body").html('Click en <b>Aceptar</b> para realizar la actualzación.');
-				$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal").modal('toggle');
+				jQuery('.modal-title').html('¿Desea actualizar el producto en el sistema?');
+				jQuery(".modal-body").html('Click en <b>Aceptar</b> para realizar la actualzación.');
+				jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$('.modal-btn-accept').on('click',function () {
+				jQuery('.modal-btn-accept').on('click',function () {
 					var form 		= document.getElementById('form_registro_producto');
 					var formData 	= new FormData(form);
 
-					$.ajax({
+					jQuery.ajax({
 						type:"POST",
 						url:"vista/ajax/ajax_productos.php?action=actualizar",
 						data:formData,
@@ -198,24 +198,24 @@ function salvar_producto(action)
 							var jsonResponse = JSON.parse(response);
 							if (jsonResponse.estado == "actualizado") 
 							{
-								$('.modal-title').html('Actualizacion exitosa');
-								$(".modal-body").html('El producto ha sido actualizado correctamente.');
-								$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+								jQuery('.modal-title').html('Actualizacion exitosa');
+								jQuery(".modal-body").html('El producto ha sido actualizado correctamente.');
+								jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-								$(".modal-btn-accept").click(function () {
-									$(".modal").modal('toggle');
-									$("#panel_animado").css("display","none");
+								jQuery(".modal-btn-accept").click(function () {
+									jQuery(".modal").modal('toggle');
+									jQuery("#panel_animado").css("display","none");
 									loadPage('productos');
 								});
 							}
 							else if (jsonResponse.estado == "error") 
 							{
-								$('.modal-title').html('Ha ocurrido un error!');
-								$(".modal-body").html(jsonResponse.data);
-								$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+								jQuery('.modal-title').html('Ha ocurrido un error!');
+								jQuery(".modal-body").html(jsonResponse.data);
+								jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-								$(".modal-btn-accept").click(function () {
-									$(".modal").modal('toggle');
+								jQuery(".modal-btn-accept").click(function () {
+									jQuery(".modal").modal('toggle');
 								});
 							}
 						}
@@ -232,21 +232,21 @@ function salvar_producto(action)
 // 	EDITAR PRODUCTO SELECCIONADO
 function editar_producto(id_producto)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/productos/editar_producto.php",
 		data:('id_producto='+id_producto)
 	}).done(function (respuesta) {
-		//$("#panel_animado").css("display","block");
-		//$("#contenido_animado").html(respuesta);
-		$("#contenido_productos").html(respuesta);
+		//jQuery("#panel_animado").css("display","block");
+		//jQuery("#contenido_animado").html(respuesta);
+		jQuery("#contenido_productos").html(respuesta);
 	})
 }
 
 //	CAMBIAR ESTADO DE PRODUCTO SELECCIONADO
 function estado_producto(estado,id_producto)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_productos.php?action=estado",
 		data:{
@@ -261,13 +261,13 @@ function estado_producto(estado,id_producto)
 			}
 			else
 			{
-				$(".modal").modal('toggle');
-				$('.modal-title').html('Ha ocurrido un error!');
-				$(".modal-body").html(jsonResponse.data);
-				$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal").modal('toggle');
+				jQuery('.modal-title').html('Ha ocurrido un error!');
+				jQuery(".modal-body").html(jsonResponse.data);
+				jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$(".modal-btn-accept").click(function () {
-					$(".modal").modal('toggle');
+				jQuery(".modal-btn-accept").click(function () {
+					jQuery(".modal").modal('toggle');
 				});
 			}
 		}
@@ -277,25 +277,25 @@ function estado_producto(estado,id_producto)
 //	FILTRO DE PRODUCTOS POR CATEGORIA SELECCIONADA
 function filtro_productos(id_categoria)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_productos.php?action=filtro",
 		data:('id_categoria='+id_categoria)
 	}).done(function (response) {
-		$(".view_products").html(response);
+		jQuery(".view_products").html(response);
 	})
 }
 
 //	ESTADO DE ATRIBUTOS DE PRODUCTO
 function eliminar_atributo(id_atributo,id_producto)
 {
-	$(".modal").modal('toggle');
-	$('.modal-title').html('Desea eliminar el atributo seleccionado?');
-	$(".modal-body").html('Da click en <b>Aceptar</b> para eliminar este atributo del producto.');
-	$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+	jQuery(".modal").modal('toggle');
+	jQuery('.modal-title').html('Desea eliminar el atributo seleccionado?');
+	jQuery(".modal-body").html('Da click en <b>Aceptar</b> para eliminar este atributo del producto.');
+	jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-	$(".modal-btn-accept").click(function () {
-		$.ajax({
+	jQuery(".modal-btn-accept").click(function () {
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_productos.php?action=estado_atributo",
 			data:{
@@ -306,17 +306,17 @@ function eliminar_atributo(id_atributo,id_producto)
 				var jsonResponse = JSON.parse(response);
 				if (jsonResponse.estado == "ok") 
 				{
-					$(".modal").modal("toggle");
+					jQuery(".modal").modal("toggle");
 					editar_producto(id_producto);
 				}
 				else if (jsonResponse.estado == "error") 
 				{
-					$('.modal-title').html('Ha ocurrido un error');
-					$(".modal-body").html(jsonResponse.data);
-					$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+					jQuery('.modal-title').html('Ha ocurrido un error');
+					jQuery(".modal-body").html(jsonResponse.data);
+					jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-					$(".modal-btn-accept").click(function () {
-						$(".modal").modal("toggle");
+					jQuery(".modal-btn-accept").click(function () {
+						jQuery(".modal").modal("toggle");
 					});
 				}
 			}
@@ -327,36 +327,36 @@ function eliminar_atributo(id_atributo,id_producto)
 //	MOSTRAR GALERIA DE IMAGENES DE UN PRODUCTO SELECCIONADO
 function galeriaProducto(id_producto)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/productos/galeria_producto.php",
 		data:('id_producto='+id_producto)
 	}).done(function (respuesta) {
-		$("#contenido_productos").html(respuesta);
+		jQuery("#contenido_productos").html(respuesta);
 	});
 }
 
 //	SUBIR IMAGEN DE PRODUCTO
 function subir_imagen(id_producto)
 {
-	var imagen = $("#imagen");
+	var imagen = jQuery("#imagen");
 
-	$(".alert_imagen").css("display","none");
-	$(".alert_imagen").html("");
+	jQuery(".alert_imagen").css("display","none");
+	jQuery(".alert_imagen").html("");
 
 	if (imagen.val() != '') 
 	{
-		$(".modal").modal("toggle");
-		$(".modal-title").html('¿Esta seguro de cargar esta imagen al servidor?');
-		$(".modal-body").html('Da click en "<b>Continuar</b>" para subir el archivo.');
-		$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+		jQuery(".modal").modal("toggle");
+		jQuery(".modal-title").html('¿Esta seguro de cargar esta imagen al servidor?');
+		jQuery(".modal-body").html('Da click en "<b>Continuar</b>" para subir el archivo.');
+		jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-		$(".modal-btn-accept").click(function () {
+		jQuery(".modal-btn-accept").click(function () {
 			
 			var form 		= document.getElementById('form_subir_imagen');
 			var formData 	= new FormData(form);
 
-			$.ajax({
+			jQuery.ajax({
 				type:"POST",
 				url:"vista/ajax/ajax_productos.php?action=subir_imagen",
 				data:formData,
@@ -367,23 +367,23 @@ function subir_imagen(id_producto)
 					var jsonResponse = JSON.parse(response);
 					if (jsonResponse.estado == "success") 
 					{
-						$(".modal-title").html('Cargue exitoso');
-						$(".modal-body").html('Se ha subido la imagen del producto correctamente!');
-						$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+						jQuery(".modal-title").html('Cargue exitoso');
+						jQuery(".modal-body").html('Se ha subido la imagen del producto correctamente!');
+						jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-						$(".modal-btn-accept").click(function () {
-							$(".modal").modal("toggle");
+						jQuery(".modal-btn-accept").click(function () {
+							jQuery(".modal").modal("toggle");
 							galeriaProducto(id_producto);
 						});
 					}
 					else if (jsonResponse.estado == "error") 
 					{
-						$(".modal-title").html('Ha ocurrido un error');
-						$(".modal-body").html(jsonResponse.data);
-						$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+						jQuery(".modal-title").html('Ha ocurrido un error');
+						jQuery(".modal-body").html(jsonResponse.data);
+						jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-						$(".modal-btn-accept").click(function () {
-							$(".modal").modal("toggle");
+						jQuery(".modal-btn-accept").click(function () {
+							jQuery(".modal").modal("toggle");
 							galeriaProducto(id_producto);
 						});
 					}
@@ -395,15 +395,15 @@ function subir_imagen(id_producto)
 	}
 	else
 	{
-		$(".alert_imagen").css("display","block");
-		$(".alert_imagen").html("Seleccione una imagen para cargar, formatos permitidos (.png, .jpg, .jpeg)");
+		jQuery(".alert_imagen").css("display","block");
+		jQuery(".alert_imagen").html("Seleccione una imagen para cargar, formatos permitidos (.png, .jpg, .jpeg)");
 	}
 }
 
 //	CAMBIAR ESTADO DE IMAGEN DE PRODUCTO
 function estado_imagen(estado,id_producto,id_imagen)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_productos.php?action=estado_imagen",
 		data:{
@@ -429,9 +429,9 @@ function estado_imagen(estado,id_producto,id_imagen)
 function promocion_producto(id_producto,venta,nombre)
 {
 	//console.log("Nombre -> "+nombre+" / Id Producto -> "+id_producto+" / Precio Venta -> $"+venta);
-	$(".modal").modal('toggle');
-	$(".modal-title").html('Crear promoción');
-	$(".modal-body").html(	'<p style="text-align:center;"><b>'+nombre+'</b></p>'+
+	jQuery(".modal").modal('toggle');
+	jQuery(".modal-title").html('Crear promoción');
+	jQuery(".modal-body").html(	'<p style="text-align:center;"><b>'+nombre+'</b></p>'+
 							'<form id="form_registro_promocion">'+
 								'<input type="hidden" name="id_producto" value="'+id_producto+'">'+
 								'<p>Precio de venta ($)</p>'+
@@ -442,15 +442,15 @@ function promocion_producto(id_producto,venta,nombre)
 								'<input class="form-control" type="number" min="0" name="precio" id="precio" value="0">'+
 							'</form>'+
 							'<button class="btn btn-primary btn-block" onclick="crear_promocion()">Generar promoción</button>');
-	$(".modal-footer").html('');
+	jQuery(".modal-footer").html('');
 }
 
 // 	CALCULAR PROMOCION
 function calcularPromocion(tipo)
 {
-	var venta 	= $("#venta");
-	var dcto  	= $("#dcto");
-	var precio 	= $("#precio");
+	var venta 	= jQuery("#venta");
+	var dcto  	= jQuery("#dcto");
+	var precio 	= jQuery("#precio");
 
 	switch(tipo)
 	{
@@ -479,7 +479,7 @@ function crear_promocion()
 	var form 		= document.getElementById('form_registro_promocion');
 	var formData 	= new FormData(form);
 
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_productos.php?action=crear_promocion",
 		data:formData,
@@ -490,24 +490,24 @@ function crear_promocion()
 			var jsonResponse = JSON.parse(response);
 			if (jsonResponse.estado == "success") 
 			{
-				$(".modal-title").html('Registro exitoso');
-				$(".modal-body").html('Se ha registrado la promoción del producto correctamente.');
-				$(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal-title").html('Registro exitoso');
+				jQuery(".modal-body").html('Se ha registrado la promoción del producto correctamente.');
+				jQuery(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$(".modal-btn-accept").click(function () {
-					$(".modal").modal('toggle');
+				jQuery(".modal-btn-accept").click(function () {
+					jQuery(".modal").modal('toggle');
 					loadPage('productos');
 				});
 
 			}
 			else if (jsonResponse.estado == "error") 
 			{
-				$(".modal-title").html('Ha ocurrido un error');
-				$(".modal-body").html(jsonResponse.data);
-				$(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal-title").html('Ha ocurrido un error');
+				jQuery(".modal-body").html(jsonResponse.data);
+				jQuery(".modal-footer").html('<button class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$(".modal-btn-accept").click(function () {
-					$(".modal").modal('toggle');
+				jQuery(".modal-btn-accept").click(function () {
+					jQuery(".modal").modal('toggle');
 				});
 			}
 		}

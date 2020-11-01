@@ -1,8 +1,8 @@
 /*REGISTRAR CATEGORIAS*/
 function nueva_categoria()
 {
-	$("#panel_animado").css("display","block");
-	$("#contenido_animado").load("vista/modulos/categorias/nueva_categoria.php");
+	jQuery("#panel_animado").css("display","block");
+	jQuery("#contenido_animado").load("vista/modulos/categorias/nueva_categoria.php");
 }
 
 /*VALIDACION Y REGISTRO DE CATEGORIA*/
@@ -10,21 +10,21 @@ function salvar_categoria(ac)
 {
 	var errores = [];
 
-	var nombre			= $("#nombre");
-	var descripcion 	= $("#descripcion");
+	var nombre			= jQuery("#nombre");
+	var descripcion 	= jQuery("#descripcion");
 
 	var campos = [nombre,descripcion];
 	var j = 2;
 
-	$("#alert_registro").css("display","none");
-	$(".form-control").css("border","1px solid #AAA");
+	jQuery("#alert_registro").css("display","none");
+	jQuery(".form-control").css("border","1px solid #AAA");
 
 	for (var i = 0; i < campos.length; i++) 
 	{
 		if(campos[i].val() == "")
 		{
-			$("#alert_registro").css("display","block");
-			$("#alert_registro").html("Diligencie el campo en el formulario para continuar!");
+			jQuery("#alert_registro").css("display","block");
+			jQuery("#alert_registro").html("Diligencie el campo en el formulario para continuar!");
 			campos[i].css("border","2px solid red");
 			campos[i].focus();
 			break;
@@ -51,17 +51,17 @@ function salvar_categoria(ac)
 		
 		if (errores.length == 0) 
 		{
-			$(".modal").modal('toggle');
-			$(".modal-title").html('¿Desea registrar esta Categoria en el sistema?');
-			$(".modal-body").html('');
-			$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+			jQuery(".modal").modal('toggle');
+			jQuery(".modal-title").html('¿Desea registrar esta Categoria en el sistema?');
+			jQuery(".modal-body").html('');
+			jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-			$(".modal-btn-accept").click(function () {
+			jQuery(".modal-btn-accept").click(function () {
 				
 				var form 		= document.getElementById('form_registro_categoria');
 				var formData 	= new FormData(form);
 
-				$.ajax({
+				jQuery.ajax({
 					type:"POST",
 					url:"vista/ajax/ajax_categorias.php?ac="+ac,
 					data: formData,
@@ -74,46 +74,46 @@ function salvar_categoria(ac)
 
 						if (jsonResponse.estado == "registrado") 
 						{
-							$(".modal-title").html('Registro exitoso');
-							$(".modal-body").html('Se ha registrado la categoria correctamente en el sistema.')
-							$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+							jQuery(".modal-title").html('Registro exitoso');
+							jQuery(".modal-body").html('Se ha registrado la categoria correctamente en el sistema.')
+							jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-							$(".modal-btn-accept").click(function () {
-								$(".modal").modal('toggle');
-								$("#panel_animado").css("display","none");
+							jQuery(".modal-btn-accept").click(function () {
+								jQuery(".modal").modal('toggle');
+								jQuery("#panel_animado").css("display","none");
 								loadPage('categorias');
 							});
 						}
 						else if(jsonResponse.estado == "ya_existe")
 						{
-							$(".modal-title").html('Registro invalido');
-							$(".modal-body").html('La categoria ya se encuentra registrada en el sistema.')
-							$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+							jQuery(".modal-title").html('Registro invalido');
+							jQuery(".modal-body").html('La categoria ya se encuentra registrada en el sistema.')
+							jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-							$(".modal-btn-accept").click(function () {
-								$(".modal").modal('toggle');
+							jQuery(".modal-btn-accept").click(function () {
+								jQuery(".modal").modal('toggle');
 							});
 						}
 						else if(jsonResponse.estado == "actualizado")
 						{
-							$(".modal-title").html('Actualizacion exitosa');
-							$(".modal-body").html('Se ha actualizado la categoria de forma correcta en el sistema.')
-							$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+							jQuery(".modal-title").html('Actualizacion exitosa');
+							jQuery(".modal-body").html('Se ha actualizado la categoria de forma correcta en el sistema.')
+							jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-							$(".modal-btn-accept").click(function () {
-								$(".modal").modal('toggle');
-								$("#panel_animado").css("display","none");
+							jQuery(".modal-btn-accept").click(function () {
+								jQuery(".modal").modal('toggle');
+								jQuery("#panel_animado").css("display","none");
 								loadPage('categorias');
 							});
 						}
 						else if(jsonResponse.estado == "error")
 						{
-							$(".modal-title").html('Ha ocurrido un error!');
-							$(".modal-body").html(jsonResponse.data);
-							$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+							jQuery(".modal-title").html('Ha ocurrido un error!');
+							jQuery(".modal-body").html(jsonResponse.data);
+							jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-							$(".modal-btn-accept").click(function () {
-								$(".modal").modal('toggle');
+							jQuery(".modal-btn-accept").click(function () {
+								jQuery(".modal").modal('toggle');
 							});
 						}
 					}
@@ -123,12 +123,12 @@ function salvar_categoria(ac)
 		}
 		else
 		{
-			$("#alert_registro").css("display","block");
-			$("#alert_registro").html("");
+			jQuery("#alert_registro").css("display","block");
+			jQuery("#alert_registro").html("");
 
 			for (var i = 0; i < errores.length; i++) 
 			{
-				$("#alert_registro").append("> "+errores[i]+"<br>");
+				jQuery("#alert_registro").append("> "+errores[i]+"<br>");
 			}
 
 			console.log(errores);
@@ -141,20 +141,20 @@ function salvar_categoria(ac)
 /*EDITAR CATEGORIA*/
 function editar_categoria(id_categoria)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/categorias/editar_categoria.php",
 		data:('id_categoria='+id_categoria)
 	}).done(function (respuesta) {
-		$("#panel_animado").css("display","block");
-		$("#contenido_animado").html(respuesta);
+		jQuery("#panel_animado").css("display","block");
+		jQuery("#contenido_animado").html(respuesta);
 	})
 }
 
 /*ESTADO CATEGORIA*/
 function estado_categoria(estado,id_categoria)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_categorias.php?ac=3",
 		data:('estado='+estado+'&id_categoria='+id_categoria)
@@ -166,13 +166,13 @@ function estado_categoria(estado,id_categoria)
 		}
 		else if(jsonResponse.estado == "error")
 		{
-			$(".modal").modal('toggle');
-			$(".modal-title").html('Ha ocurrido un error!');
-			$(".modal-body").html(jsonResponse.data);
-			$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+			jQuery(".modal").modal('toggle');
+			jQuery(".modal-title").html('Ha ocurrido un error!');
+			jQuery(".modal-body").html(jsonResponse.data);
+			jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-			$(".modal-btn-accept").click(function () {
-				$(".modal").modal('toggle');
+			jQuery(".modal-btn-accept").click(function () {
+				jQuery(".modal").modal('toggle');
 			});
 		}
 	});
@@ -181,7 +181,7 @@ function estado_categoria(estado,id_categoria)
 // 	AGREGAR NUEVA CLASIFICACION DE CATEGORIA
 function agregar_clasificacion(id_categoria,categoria)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/categorias/nueva_clasificacion.php",
 		data:{
@@ -189,8 +189,8 @@ function agregar_clasificacion(id_categoria,categoria)
 			categoria: 		categoria
 		},
 		success:function (response) {
-			$("#panel_animado").css("display","block");
-			$("#contenido_animado").html(response);
+			jQuery("#panel_animado").css("display","block");
+			jQuery("#contenido_animado").html(response);
 		}
 	});
 }
@@ -198,27 +198,27 @@ function agregar_clasificacion(id_categoria,categoria)
 //	VALIDACION DE FORMULARIO DE CLASIFICACION
 function salvar_clasificacion(ac)
 {
-	$("#alert_registro").css("display","none");
-	$("#alert_registro").html("");
+	jQuery("#alert_registro").css("display","none");
+	jQuery("#alert_registro").html("");
 
-	var clasificacion = $("#nombre");
+	var clasificacion = jQuery("#nombre");
 	if (clasificacion.val() != "") 
 	{
 		switch(ac)
 		{
 			case '4':
 				// 	REGISTRO
-				$(".modal").modal('toggle');
-				$(".modal-title").html('¿Desea registrar esta Clasificación en el sistema?');
-				$(".modal-body").html('Da click en <b>Aceptar</b> para realizar el registro');
-				$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal").modal('toggle');
+				jQuery(".modal-title").html('¿Desea registrar esta Clasificación en el sistema?');
+				jQuery(".modal-body").html('Da click en <b>Aceptar</b> para realizar el registro');
+				jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$(".modal-btn-accept").click(function () {
+				jQuery(".modal-btn-accept").click(function () {
 
 					var form 		= document.getElementById('form_registro_clasificacion');
 					var formData 	= new FormData(form);
 
-					$.ajax({
+					jQuery.ajax({
 						type:"POST",
 						url:"vista/ajax/ajax_categorias.php?ac=4",
 						data:formData,
@@ -228,18 +228,18 @@ function salvar_clasificacion(ac)
 							var jsonResponse = JSON.parse(response);
 							if (jsonResponse.estado == "registrado") 
 							{
-								$(".modal").modal('toggle');
-								$("#panel_animado").css("display","none");
+								jQuery(".modal").modal('toggle');
+								jQuery("#panel_animado").css("display","none");
 								loadPage('categorias');
 							}
 							else
 							{
-								$(".modal-title").html('Ha ocurrido un error!');
-								$(".modal-body").html(jsonResponse.data);
-								$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+								jQuery(".modal-title").html('Ha ocurrido un error!');
+								jQuery(".modal-body").html(jsonResponse.data);
+								jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-								$(".modal-btn-accept").click(function () {
-									$(".modal").modal('toggle');
+								jQuery(".modal-btn-accept").click(function () {
+									jQuery(".modal").modal('toggle');
 								});
 							}
 						}
@@ -250,17 +250,17 @@ function salvar_clasificacion(ac)
 
 			case '5':
 				// 	ACTUALIZACION
-				$(".modal").modal('toggle');
-				$(".modal-title").html('¿Desea actualizar esta Clasificación en el sistema?');
-				$(".modal-body").html('Da click en <b>Aceptar</b> para realizar la actualización');
-				$(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal").modal('toggle');
+				jQuery(".modal-title").html('¿Desea actualizar esta Clasificación en el sistema?');
+				jQuery(".modal-body").html('Da click en <b>Aceptar</b> para realizar la actualización');
+				jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary modal-btn-cancel" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$(".modal-btn-accept").click(function () {
+				jQuery(".modal-btn-accept").click(function () {
 
 					var form 		= document.getElementById('form_registro_clasificacion');
 					var formData 	= new FormData(form);
 
-					$.ajax({
+					jQuery.ajax({
 						type:"POST",
 						url:"vista/ajax/ajax_categorias.php?ac=5",
 						data:formData,
@@ -270,18 +270,18 @@ function salvar_clasificacion(ac)
 							var jsonResponse = JSON.parse(response);
 							if (jsonResponse.estado == "actualizado") 
 							{
-								$(".modal").modal('toggle');
-								$("#panel_animado").css("display","none");
+								jQuery(".modal").modal('toggle');
+								jQuery("#panel_animado").css("display","none");
 								loadPage('categorias');
 							}
 							else
 							{
-								$(".modal-title").html('Ha ocurrido un error!');
-								$(".modal-body").html(jsonResponse.data);
-								$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+								jQuery(".modal-title").html('Ha ocurrido un error!');
+								jQuery(".modal-body").html(jsonResponse.data);
+								jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-								$(".modal-btn-accept").click(function () {
-									$(".modal").modal('toggle');
+								jQuery(".modal-btn-accept").click(function () {
+									jQuery(".modal").modal('toggle');
 								});
 							}
 						}
@@ -292,8 +292,8 @@ function salvar_clasificacion(ac)
 	}
 	else
 	{
-		$("#alert_registro").css("display","block");
-		$("#alert_registro").html("Ingrese el nombre de la nueva clasificacion a registrar");
+		jQuery("#alert_registro").css("display","block");
+		jQuery("#alert_registro").html("Ingrese el nombre de la nueva clasificacion a registrar");
 		clasificacion.focus();
 	}
 }
@@ -301,7 +301,7 @@ function salvar_clasificacion(ac)
 //	EDITAR CLASIFICACION
 function editar_clasificacion(id_clasificacion,nombre_clasificacion)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/modulos/categorias/editar_clasificacion.php",
 		data:{
@@ -309,8 +309,8 @@ function editar_clasificacion(id_clasificacion,nombre_clasificacion)
 			clasificacion: 		nombre_clasificacion
 		},
 		success:function (response) {
-			$("#panel_animado").css("display","block");
-			$("#contenido_animado").html(response);
+			jQuery("#panel_animado").css("display","block");
+			jQuery("#contenido_animado").html(response);
 		}
 	});
 }
@@ -318,7 +318,7 @@ function editar_clasificacion(id_clasificacion,nombre_clasificacion)
 //	ACTUALIZAR ESTADO DE CLASIFICACION
 function estado_clasificacion(estado,id_clasificacion)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_categorias.php?ac=6",
 		data:{
@@ -333,12 +333,12 @@ function estado_clasificacion(estado,id_clasificacion)
 			}
 			else
 			{
-				$(".modal-title").html('Ha ocurrido un error!');
-				$(".modal-body").html(jsonResponse.data);
-				$(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
+				jQuery(".modal-title").html('Ha ocurrido un error!');
+				jQuery(".modal-body").html(jsonResponse.data);
+				jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
-				$(".modal-btn-accept").click(function () {
-					$(".modal").modal('toggle');
+				jQuery(".modal-btn-accept").click(function () {
+					jQuery(".modal").modal('toggle');
 				});
 			}
 		}
