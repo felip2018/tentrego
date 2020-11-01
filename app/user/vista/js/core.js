@@ -132,7 +132,7 @@ function cerrar_sesion()
 					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
 					jQuery(".modal-btn-accept").click(function() {
-						location.href = "../index.php";
+						location.href = "../../index.php";
 					});
 				}
 				else

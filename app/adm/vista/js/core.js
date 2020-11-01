@@ -3,7 +3,7 @@ jQuery(document).ready(function () {
 	if (localStorage.acceso == '1') 
 	{
 		//	VALIDAR PERFIL DE USUARIO
-		$.ajax({
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_inicio.php",
 			data:
@@ -23,7 +23,7 @@ jQuery(document).ready(function () {
 				}
 				else if (jsonResponse.estado == "denied")
 				{
-					$.ajax({
+					jQuery.ajax({
 						type:"POST",
 						url:"vista/ajax/ajax_inicio.php",
 						data:
@@ -100,7 +100,7 @@ function cerrar_sesion()
 	jQuery(".modal-footer").html('<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button><button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
 	jQuery(".modal-btn-accept").on('click',function () {		
-		$.ajax({
+		jQuery.ajax({
 			type:"POST",
 			url:"vista/ajax/ajax_inicio.php",
 			data:
@@ -135,7 +135,7 @@ function cerrar_sesion()
 					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
 					jQuery(".modal-btn-accept").click(function() {
-						location.href = "../index.php";
+						location.href = "../../index.php";
 					});
 				}
 				else
