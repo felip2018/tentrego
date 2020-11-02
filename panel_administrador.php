@@ -4,31 +4,31 @@
   <meta charset="utf-8">
   <title>Administrador</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../../vista/img/favicon.png" type="image/png" sizes="20x20">
+  <link rel="icon" href="vista/img/favicon.png" type="image/png" sizes="20x20">
   
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" type="text/css" href="../../vista/css/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="vista/css/style.css">
-  <script type="text/javascript" src="../../vista/js/bootstrap/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="vista/css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vista/css/adm/style.css">
+  <script type="text/javascript" src="vista/js/bootstrap/bootstrap.min.js"></script>
   
   <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">-->
   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed|Montserrat|Raleway" rel="stylesheet">
 
 
   <!--FUNCIONES JAVASCRIPT-->
-  <script type="text/javascript" src="vista/js/core.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_inicio.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_categorias.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_marcas.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_productos.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_atributos.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_usuarios.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_pedidos.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_promociones.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_casos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/core.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/fnc_inicio.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/fnc_categorias.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/fnc_marcas.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/fnc_productos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/fnc_atributos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/fnc_usuarios.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/fnc_pedidos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/fnc_promociones.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm/fnc_casos.js"></script>
 
 </head>
 <body>
@@ -37,7 +37,7 @@
       <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 menu">
         <!--<caption>Menu</caption>-->
         <div style="text-align: center;">
-          <img src="../../vista/img/logo_click_store_2.png" alt="Logo Click Store">
+          <img src="vista/img/logo_click_store_2.png" alt="Logo Click Store">
         </div>
         <table>
           <tr>
@@ -132,7 +132,6 @@
             </a>
           </div>
           <div class="col-9" style="padding: 10px;text-align: right;color:#FFF;">
-            <!--<img src="../../vista/img/logo_click_store_2.png" alt="Logo Click Store">-->
             <button class="btn btn-light" type="button" onclick="info_usuario()">
               <script type="text/javascript">
                 document.write(localStorage.nombre);
@@ -142,7 +141,7 @@
         </div>
         <div class="row p-2" id="vista">
           <?php
-            require_once "vista/modulos/inicio/inicio.php";
+            require_once "vista/modulos/adm/inicio/inicio.php";
           ?>
         </div>
         <div class="row" id="contact">
@@ -165,7 +164,7 @@
       </a>
     </div>
     <div style="text-align: center;">
-      <img src="../../vista/img/logo_click_store_2.png" alt="Logo Click Store">
+      <img src="vista/img/logo_click_store_2.png" alt="Logo Click Store">
     </div>
     <table>
       <tr>

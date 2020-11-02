@@ -41,11 +41,11 @@
 			{
 				if (localStorage.id_perfil == 1) 
 				{
-					location.href = "app/adm/";
+					location.href = "panel_administrador.php";
 				}
 				else if (localStorage.id_perfil == 2)
 				{
-					location.href = "app/user/";
+					location.href = "panel_usuario.php";
 				}
 			}
 			else
