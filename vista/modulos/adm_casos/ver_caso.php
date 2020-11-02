@@ -41,7 +41,7 @@
 <div class="col-xs-12 col-md-5">
 	<h4 class="alert alert-success">Información del cliente</h4>
 	<div style="text-align: center;">
-		<img src="vista/modulos/usuarios/fotos/<?php echo $foto_usuario;?>" alt="Foto de usuario" style="width:50%;height: auto;">
+		<img src="vista/modulos/adm_usuarios/fotos/<?php echo $foto_usuario;?>" alt="Foto de usuario" style="width:50%;height: auto;">
 	</div>
 	<table class="table">
 		<tr>
@@ -84,7 +84,7 @@
 <div class="col-xs-12 col-md-7">
 	<h4 class="alert alert-success">Información del caso</h4>
 	<div style="text-align: center;">
-		<img src="vista/modulos/productos/imagenes/<?php echo $imagen;?>" alt="Imagen de producto" style="width:50%;height: auto;">
+		<img src="vista/img/productos/<?php echo $imagen;?>" alt="Imagen de producto" style="width:50%;height: auto;">
 	</div>
 	<table class="table">
 		<tr>

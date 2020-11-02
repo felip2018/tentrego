@@ -50,7 +50,7 @@ jQuery(document).ready(function () {
 								localStorage.removeItem("perfil");
 								localStorage.removeItem("sesion");
 
-								location.href = "../index.php";
+								location.href = "index.php";
 								
 							}
 						}

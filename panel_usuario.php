@@ -11,27 +11,27 @@
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" type="text/css" href="../../vista/css/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="vista/css/style.css">
-  <script type="text/javascript" src="../../vista/js/bootstrap/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="vista/css/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vista/css/user_style.css">
+  <script type="text/javascript" src="vista/js/bootstrap/bootstrap.min.js"></script>
   
   <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">-->
   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed|Montserrat|Raleway" rel="stylesheet">
 
   <!--FUNCIONES JAVASCRIPT-->
-  <script type="text/javascript" src="vista/js/core.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/user_core.js"></script>
 
-  <script type="text/javascript" src="vista/js/modulos/fnc_tienda.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_carrito.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_inicio.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_mis_pedidos.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_mis_resenas.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_mis_direcciones.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_info.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/fnc_casos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/user_fnc_tienda.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/user_fnc_carrito.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/user_fnc_inicio.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/user_fnc_mis_pedidos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/user_fnc_mis_resenas.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/user_fnc_mis_direcciones.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/user_fnc_info.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/user_fnc_casos.js"></script>
 
   <!--NOTIFICACIONES PUSH-->
-  <script type="text/javascript" src="../../vista/js/push_js/bin/push.min.js"></script>
+  <script type="text/javascript" src="vista/js/push_js/bin/push.min.js"></script>
 
   <script>
     window.fbAsyncInit = function() {
@@ -61,7 +61,7 @@
       <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 menu">
         <!--<caption>Menu</caption>-->
         <div style="text-align: center;">
-          <img src="../../vista/img/logo_click_store_2.png" alt="Logo Click Store">
+          <img src="vista/img/logo_click_store_2.png" alt="Logo Click Store">
         </div>
         <table>
           <tr>
@@ -162,12 +162,11 @@
         <td>
           <table>
             <tr>
-              <td><a href="#mi_perfil" onclick="/*verOpcionesMenu('opc_mi_perfil');*/"><i class="fa fa-user"></i> Mi Perfil</a></td> 
+              <td><a href="#mi_perfil"><i class="fa fa-user"></i> Mi Perfil</a></td> 
             </tr>
             <tr class="opciones" style="display: block;" id="opc_mi_perfil">
               <td>
                 <table>
-                  <!--<tr><td><a href="#Mis_datos_personales" onclick="loadPage('mis_datos_personales')"><i class="fa fa-database"></i> Mis datos personales</a></td></tr>-->
                   <tr><td><a href="#mis_direcciones" onclick="loadPage('mis_direcciones')"><i class="fa fa-map-marker-alt"></i> Mis direcciones</a></td></tr>
                 </table>
               </td>
