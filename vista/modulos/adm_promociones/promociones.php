@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/con_promociones.php";
-	require_once "../../../modelo/mod_promociones.php";
+	require_once "../../../controlador/adm_con_promociones.php";
+	require_once "../../../modelo/adm_mod_promociones.php";
 
 	$promociones = new PromocionesCon();
 

@@ -6,7 +6,7 @@ function buscarClasificaciones()
 	{
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_tienda.php?action=buscarClasificacion",
+			url:"vista/ajax/user_ajax_tienda.php?action=buscarClasificacion",
 			data:{
 				id_categoria: id_categoria.val()
 			},
@@ -32,7 +32,7 @@ function filtro_productos(id_categoria)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_tienda.php?action=filtro",
+		url:"vista/ajax/user_ajax_tienda.php?action=filtro",
 		data:('id_categoria='+id_categoria)
 	}).done(function (response) {
 		//console.log(response);
@@ -88,7 +88,7 @@ function filtro_productos(id_categoria)
 function lista_categorias(id_categoria) {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_tienda.php?action=buscarClasificacion",
+		url:"vista/ajax/user_ajax_tienda.php?action=buscarClasificacion",
 		data:('id_categoria='+id_categoria)
 	}).done(function (response) {
 		//console.log(response);
@@ -109,7 +109,7 @@ function filtro_productos_clasificacion(id_clasificacion,id_categoria)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_tienda.php?action=filtro_clasificacion",
+		url:"vista/ajax/user_ajax_tienda.php?action=filtro_clasificacion",
 		data:('id_categoria='+id_categoria+'&id_clasificacion='+id_clasificacion)
 	}).done(function (response) {
 		//console.log(response);
@@ -168,7 +168,7 @@ function agregar_al_carrito(id_producto,nombre_producto,precio_venta,imagen)
 	//console.log("Id Producto -> "+id_producto+"/ Nombre Producto -> "+nombre_producto+"/ $"+precio_venta);
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_carrito.php?action=agregar_producto",
+		url:"vista/ajax/user_ajax_carrito.php?action=agregar_producto",
 		data:{
 			id_producto: 	id_producto,
 			nombre: 		nombre_producto,
@@ -200,7 +200,7 @@ function info_producto(id_producto)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/tienda/info_producto.php",
+		url:"vista/modulos/user_tienda/info_producto.php",
 		data:{
 			id_producto: id_producto
 		},

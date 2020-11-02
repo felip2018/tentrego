@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/con_mis_direcciones.php";
-	require_once "../../../modelo/mod_mis_direcciones.php";
+	require_once "../../../controlador/user_con_mis_direcciones.php";
+	require_once "../../../modelo/user_mod_mis_direcciones.php";
 
 	$mis_direcciones = new MisDireccionesCon();
 

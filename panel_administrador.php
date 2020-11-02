@@ -11,7 +11,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" type="text/css" href="vista/css/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="vista/css/adm/style.css">
+  <link rel="stylesheet" href="vista/css/adm_style.css">
   <script type="text/javascript" src="vista/js/bootstrap/bootstrap.min.js"></script>
   
   <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">-->
@@ -19,16 +19,15 @@
 
 
   <!--FUNCIONES JAVASCRIPT-->
-  <script type="text/javascript" src="vista/js/modulos/adm/core.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/adm/fnc_inicio.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/adm/fnc_categorias.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/adm/fnc_marcas.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/adm/fnc_productos.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/adm/fnc_atributos.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/adm/fnc_usuarios.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/adm/fnc_pedidos.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/adm/fnc_promociones.js"></script>
-  <script type="text/javascript" src="vista/js/modulos/adm/fnc_casos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm_core.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm_fnc_categorias.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm_fnc_marcas.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm_fnc_productos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm_fnc_atributos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm_fnc_usuarios.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm_fnc_pedidos.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm_fnc_promociones.js"></script>
+  <script type="text/javascript" src="vista/js/modulos/adm_fnc_casos.js"></script>
 
 </head>
 <body>
@@ -141,7 +140,7 @@
         </div>
         <div class="row p-2" id="vista">
           <?php
-            require_once "vista/modulos/adm/inicio/inicio.php";
+            require_once "vista/modulos/adm_inicio/inicio.php";
           ?>
         </div>
         <div class="row" id="contact">

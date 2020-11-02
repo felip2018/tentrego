@@ -128,7 +128,7 @@
         </div>
         <div class="row p-2" id="vista">
           <?php
-            require_once "vista/modulos/inicio/inicio.php";
+            require_once "vista/modulos/user_inicio/inicio.php";
           ?>
         </div>
         <div class="row" id="contact">

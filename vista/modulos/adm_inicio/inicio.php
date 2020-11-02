@@ -1,6 +1,6 @@
 <?php
-	require_once "controlador/adm/con_inicio.php";
-	require_once "modelo/adm/mod_inicio.php";
+	require_once "controlador/adm_con_inicio.php";
+	require_once "modelo/adm_mod_inicio.php";
 ?>
 <div class="col-12">
 	<h4 class="alert alert-info">

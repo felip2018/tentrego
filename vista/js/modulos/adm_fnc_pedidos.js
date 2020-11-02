@@ -2,7 +2,7 @@ function verListaPedidos()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/adm/pedidos/lista_pedidos.php",
+		url:"vista/modulos/adm_pedidos/lista_pedidos.php",
 		data:{
 			action: "listaPedidos",
 			email: localStorage.email
@@ -17,7 +17,7 @@ function ver_pedido(id_pedido)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/adm/pedidos/ver_pedido.php",
+		url:"vista/modulos/adm_pedidos/ver_pedido.php",
 		data:{
 			id_pedido: id_pedido
 		},

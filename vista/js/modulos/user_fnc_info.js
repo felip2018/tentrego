@@ -4,7 +4,7 @@ function info_agregar_al_carrito(id_producto,nombre_producto,precio_venta,imagen
 	//console.log("Id Producto -> "+id_producto+"/ Nombre Producto -> "+nombre_producto+"/ $"+precio_venta);
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_carrito.php?action=agregar_producto",
+		url:"vista/ajax/user_ajax_carrito.php?action=agregar_producto",
 		data:{
 			id_producto: 	id_producto,
 			nombre: 		nombre_producto,
@@ -21,7 +21,7 @@ function info_agregar_al_carrito(id_producto,nombre_producto,precio_venta,imagen
 				//NOTIFICACION PUSH
 				Push.create("Click Store", {
 			    body: "Se ha agregado el producto al carrito de compras.",
-			    icon: '../adm/vista/modulos/productos/imagenes/'+imagen,
+			    icon: 'vista/img/productos/'+imagen,
 			    timeout: 4000,
 			    onClick: function () {
 			        window.focus();
@@ -36,5 +36,5 @@ function info_agregar_al_carrito(id_producto,nombre_producto,precio_venta,imagen
 //	VER IMAGEN MINIATURA GRANDE
 function ver_imagen(imagen)
 {
-	jQuery(".view_img").attr("src","../adm/vista/modulos/productos/imagenes/"+imagen)
+	jQuery(".view_img").attr("src","vista/img/productos/"+imagen)
 }

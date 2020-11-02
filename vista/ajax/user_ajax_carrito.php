@@ -1,6 +1,6 @@
 <?php
-	require_once "../../controlador/con_carrito.php";
-	require_once "../../modelo/mod_carrito.php";
+	require_once "../../controlador/user_con_carrito.php";
+	require_once "../../modelo/user_mod_carrito.php";
 
 	if (isset($_GET['action'])) 
 	{

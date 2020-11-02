@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/adm/con_categorias.php";
-	require_once "../../../modelo/adm/mod_categorias.php";
+	require_once "../../controlador/adm_con_categorias.php";
+	require_once "../../modelo/adm_mod_categorias.php";
 
 	$ac = $_GET['ac'];
 

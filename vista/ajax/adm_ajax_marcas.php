@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/adm/con_marcas.php";
-	require_once "../../../modelo/adm/mod_marcas.php";
+	require_once "../../controlador/adm_con_marcas.php";
+	require_once "../../modelo/adm_mod_marcas.php";
 
 	$ac = $_GET['ac'];
 

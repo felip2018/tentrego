@@ -2,7 +2,7 @@
 function nueva_categoria()
 {
 	jQuery("#panel_animado").css("display","block");
-	jQuery("#contenido_animado").load("vista/modulos/categorias/nueva_categoria.php");
+	jQuery("#contenido_animado").load("vista/modulos/adm_categorias/nueva_categoria.php");
 }
 
 /*VALIDACION Y REGISTRO DE CATEGORIA*/
@@ -63,7 +63,7 @@ function salvar_categoria(ac)
 
 				jQuery.ajax({
 					type:"POST",
-					url:"vista/ajax/ajax_categorias.php?ac="+ac,
+					url:"vista/ajax/adm_ajax_categorias.php?ac="+ac,
 					data: formData,
 					contentType:false,
 					processData:false,
@@ -143,7 +143,7 @@ function editar_categoria(id_categoria)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/categorias/editar_categoria.php",
+		url:"vista/modulos/adm_categorias/editar_categoria.php",
 		data:('id_categoria='+id_categoria)
 	}).done(function (respuesta) {
 		jQuery("#panel_animado").css("display","block");
@@ -156,7 +156,7 @@ function estado_categoria(estado,id_categoria)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_categorias.php?ac=3",
+		url:"vista/ajax/adm_ajax_categorias.php?ac=3",
 		data:('estado='+estado+'&id_categoria='+id_categoria)
 	}).done(function(respuesta) {
 		var jsonResponse = JSON.parse(respuesta);
@@ -183,7 +183,7 @@ function agregar_clasificacion(id_categoria,categoria)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/categorias/nueva_clasificacion.php",
+		url:"vista/modulos/adm_categorias/nueva_clasificacion.php",
 		data:{
 			id_categoria: 	id_categoria,
 			categoria: 		categoria
@@ -220,7 +220,7 @@ function salvar_clasificacion(ac)
 
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/ajax_categorias.php?ac=4",
+						url:"vista/ajax/adm_ajax_categorias.php?ac=4",
 						data:formData,
 						contentType:false,
 						processData:false,
@@ -262,7 +262,7 @@ function salvar_clasificacion(ac)
 
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/ajax_categorias.php?ac=5",
+						url:"vista/ajax/adm_ajax_categorias.php?ac=5",
 						data:formData,
 						contentType:false,
 						processData:false,
@@ -303,7 +303,7 @@ function editar_clasificacion(id_clasificacion,nombre_clasificacion)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/categorias/editar_clasificacion.php",
+		url:"vista/modulos/adm_categorias/editar_clasificacion.php",
 		data:{
 			id_clasificacion: 	id_clasificacion,
 			clasificacion: 		nombre_clasificacion
@@ -320,7 +320,7 @@ function estado_clasificacion(estado,id_clasificacion)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_categorias.php?ac=6",
+		url:"vista/ajax/adm_ajax_categorias.php?ac=6",
 		data:{
 			estado: 			estado,
 			id_clasificacion: 	id_clasificacion

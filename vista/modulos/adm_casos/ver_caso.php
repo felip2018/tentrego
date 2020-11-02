@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/con_casos.php";
-	require_once "../../../modelo/mod_casos.php";
+	require_once "../../../controlador/adm_con_casos.php";
+	require_once "../../../modelo/adm_mod_casos.php";
 	setlocale(LC_TIME, 'spanish');
 	$id_caso = $_POST['id_caso'];
 

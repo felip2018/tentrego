@@ -3,7 +3,7 @@ function nuevo_atributo()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/atributos/nuevo_atributo.php",
+		url:"vista/modulos/adm_atributos/nuevo_atributo.php",
 		success:function (response) {
 			jQuery("#panel_animado").css("display","block");
 			jQuery("#contenido_animado").html(response);
@@ -36,7 +36,7 @@ function salvar_atributo(ac)
 
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/ajax_atributos.php?ac=1",
+						url:"vista/ajax/adm_ajax_atributos.php?ac=1",
 						data:formData,
 						contentType:false,
 						processData:false,
@@ -89,7 +89,7 @@ function salvar_atributo(ac)
 
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/ajax_atributos.php?ac=2",
+						url:"vista/ajax/adm_ajax_atributos.php?ac=2",
 						data:formData,
 						contentType:false,
 						processData:false,
@@ -131,7 +131,7 @@ function editar_atributo(id_atributo)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/atributos/editar_atributo.php",
+		url:"vista/modulos/adm_atributos/editar_atributo.php",
 		data:{
 			id_atributo: id_atributo
 		},
@@ -147,7 +147,7 @@ function estado_atributo(estado,id_atributo)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_atributos.php?ac=3",
+		url:"vista/ajax/adm_ajax_atributos.php?ac=3",
 		data:{
 			estado: 	estado,
 			id_atributo:id_atributo

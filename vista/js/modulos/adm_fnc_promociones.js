@@ -3,7 +3,7 @@ function estado_promocion(estado,id_promocion)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_promociones.php?action=estadoPromocion",
+		url:"vista/ajax/adm_ajax_promociones.php?action=estadoPromocion",
 		data:{
 			estado: 		estado,
 			id_promocion: 	id_promocion

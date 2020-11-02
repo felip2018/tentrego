@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/con_categorias.php";
-	require_once "../../../modelo/mod_categorias.php";
+	require_once "../../../controlador/adm_con_categorias.php";
+	require_once "../../../modelo/adm_mod_categorias.php";
 ?>
 <div class="col-12 alert alert-info">
 	<table>

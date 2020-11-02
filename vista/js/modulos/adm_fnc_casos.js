@@ -4,7 +4,7 @@ function ver_caso(id_caso)
 	//console.log("Id Caso -> "+id_caso);
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/casos/ver_caso.php",
+		url:"vista/modulos/adm_casos/ver_caso.php",
 		data:{
 			id_caso: id_caso
 		},
@@ -35,7 +35,7 @@ function agregar_proceso(id_caso,cliente,email)
 			jQuery(".modal-btn-accept").click(function () {
 				jQuery.ajax({
 					type:"POST",
-					url:"vista/ajax/ajax_casos.php?action=actualizarProceso",
+					url:"vista/ajax/adm_ajax_casos.php?action=actualizarProceso",
 					data:{
 						id_caso: 		id_caso,
 						cliente: 		cliente,

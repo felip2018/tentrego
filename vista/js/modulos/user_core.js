@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
 		//	VALIDAR PERFIL DE USUARIO
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_inicio.php",
+			url:"vista/ajax/user_ajax_inicio.php",
 			data:
 			{
 				modulo: 	"sesion",
@@ -24,7 +24,7 @@ jQuery(document).ready(function () {
 				{
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/ajax_inicio.php",
+						url:"vista/ajax/user_ajax_inicio.php",
 						data:
 						{
 							modulo: 	"sesion",
@@ -63,7 +63,7 @@ jQuery(document).ready(function () {
 	else
 	{
 		// 	NO HA INICIADO SESION
-		location.href = "../index.php";
+		location.href = "index.php";
 	}
 })
 
@@ -99,7 +99,7 @@ function cerrar_sesion()
 	jQuery(".modal-btn-accept").on('click',function () {		
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_inicio.php",
+			url:"vista/ajax/user_ajax_inicio.php",
 			data:
 			{
 				modulo: 	"sesion",
@@ -132,7 +132,7 @@ function cerrar_sesion()
 					jQuery(".modal-footer").html('<button type="button" class="btn btn-primary modal-btn-accept">Aceptar</button>');
 
 					jQuery(".modal-btn-accept").click(function() {
-						location.href = "../../index.php";
+						location.href = "index.php";
 					});
 				}
 				else
@@ -155,5 +155,5 @@ function cerrar_sesion()
 /*CARGAR PAGINA SOLICITADA*/
 function loadPage(page) 
 {
-	jQuery("#vista").load("vista/modulos/"+page+"/"+page+".php");
+	jQuery("#vista").load("vista/modulos/user_"+page+"/"+page+".php");
 }

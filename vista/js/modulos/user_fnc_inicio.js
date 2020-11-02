@@ -2,7 +2,7 @@ function verInfoUsuario()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_inicio.php",
+		url:"vista/ajax/user_ajax_inicio.php",
 		data:{
 			modulo:"inicio",
 			action:"informacionUsuario",
@@ -125,7 +125,7 @@ function verInfoUsuario()
 
 							jQuery.ajax({
 								type:"POST",
-								url:"vista/ajax/ajax_inicio.php",
+								url:"vista/ajax/user_ajax_inicio.php",
 								data: formData,
 								contentType:false,
 								processData:false,
@@ -205,7 +205,7 @@ function conteoPedidosUsuario()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_inicio.php",
+		url:"vista/ajax/user_ajax_inicio.php",
 		data:{
 			modulo:"inicio",
 			action:"pedidosUsuario",

@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/con_tienda.php";
-	require_once "../../../modelo/mod_tienda.php";
+	require_once "../../../controlador/user_con_tienda.php";
+	require_once "../../../modelo/user_mod_tienda.php";
 ?>
 <div class="col-xs-12 col-md-12">
 	<h4 class="alert alert-success">Tienda</h4>

@@ -2,7 +2,7 @@
 function nuevo_usuario()
 {
 	jQuery("#panel_animado").css("display","block");
-	jQuery("#contenido_animado").load("vista/modulos/usuarios/nuevo_usuario.php");
+	jQuery("#contenido_animado").load("vista/modulos/adm_usuarios/nuevo_usuario.php");
 	//jQuery(".modal").modal('toggle');
 	//jQuery(".modal-title").html('Registro de usuario');
 	//jQuery(".modal-body").load("vista/modulos/usuarios/nuevo_usuario.php");
@@ -95,7 +95,7 @@ function salvar_usuario(ac)
 
 				jQuery.ajax({
 					type:"POST",
-					url:"vista/ajax/ajax_usuarios.php?ac="+ac,
+					url:"vista/ajax/adm_ajax_usuarios.php?ac="+ac,
 					data: formData,
 					contentType:false,
 					processData:false,
@@ -175,7 +175,7 @@ function editar_usuario(pk_usuario)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/usuarios/editar_usuario.php",
+		url:"vista/modulos/adm_usuarios/editar_usuario.php",
 		data:('pk_usuario='+pk_usuario)
 	}).done(function (respuesta) {
 		jQuery("#panel_animado").css("display","block");
@@ -188,7 +188,7 @@ function estado_usuario(estado,pk_usuario)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_usuarios.php?ac=3",
+		url:"vista/ajax/adm_ajax_usuarios.php?ac=3",
 		data:('estado='+estado+'&pk_usuario='+pk_usuario)
 	}).done(function(respuesta) {
 		var jsonResponse = JSON.parse(respuesta);

@@ -3,7 +3,7 @@ function nueva_marca()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/marcas/nueva_marca.php",
+		url:"vista/modulos/adm_marcas/nueva_marca.php",
 		success:function (response) {
 			jQuery("#panel_animado").css("display","block");
 			jQuery("#contenido_animado").html(response);
@@ -36,7 +36,7 @@ function salvar_marca(ac)
 
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/ajax_marcas.php?ac=1",
+						url:"vista/ajax/adm_ajax_marcas.php?ac=1",
 						data:formData,
 						contentType:false,
 						processData:false,
@@ -89,7 +89,7 @@ function salvar_marca(ac)
 
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/ajax_marcas.php?ac=2",
+						url:"vista/ajax/adm_ajax_marcas.php?ac=2",
 						data:formData,
 						contentType:false,
 						processData:false,
@@ -130,7 +130,7 @@ function editar_marca(id_marca)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/marcas/editar_marca.php",
+		url:"vista/modulos/adm_marcas/editar_marca.php",
 		data:{
 			id_marca: id_marca
 		},
@@ -146,7 +146,7 @@ function estado_marca(estado,id_marca)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_marcas.php?ac=3",
+		url:"vista/ajax/adm_ajax_marcas.php?ac=3",
 		data:{
 			estado: 	estado,
 			id_marca: 	id_marca

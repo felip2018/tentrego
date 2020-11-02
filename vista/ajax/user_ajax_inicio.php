@@ -1,6 +1,6 @@
 <?php
-	require_once "../../controlador/con_inicio.php";
-	require_once "../../modelo/mod_inicio.php";
+	require_once "../../controlador/user_con_inicio.php";
+	require_once "../../modelo/user_mod_inicio.php";
 
 	//require_once "../../modelo/PHPExcel/Classes/PHPExcel/IOFactory.php";
 

@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../../controlador/adm/con_pedidos.php";
-	require_once "../../../../modelo/adm/mod_pedidos.php";
+	require_once "../../../controlador/adm_con_pedidos.php";
+	require_once "../../../modelo/adm_mod_pedidos.php";
 	setlocale(LC_TIME, 'spanish');
 	$email = $_POST['email'];
 

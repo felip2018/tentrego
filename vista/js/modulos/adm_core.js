@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
 		//	VALIDAR PERFIL DE USUARIO
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/adm/ajax_inicio.php",
+			url:"vista/ajax/adm_ajax_inicio.php",
 			data:
 			{
 				modulo: 	"sesion",
@@ -25,7 +25,7 @@ jQuery(document).ready(function () {
 				{
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/adm/ajax_inicio.php",
+						url:"vista/ajax/adm_ajax_inicio.php",
 						data:
 						{
 							modulo: 	"sesion",
@@ -102,7 +102,7 @@ function cerrar_sesion()
 	jQuery(".modal-btn-accept").on('click',function () {		
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/adm/ajax_inicio.php",
+			url:"vista/ajax/adm_ajax_inicio.php",
 			data:
 			{
 				modulo: 	"sesion",
@@ -158,7 +158,7 @@ function cerrar_sesion()
 /*CARGAR PAGINA SOLICITADA*/
 function loadPage(page) 
 {
-	jQuery("#vista").load("vista/modulos/adm/"+page+"/"+page+".php");
+	jQuery("#vista").load("vista/modulos/adm_"+page+"/"+page+".php");
 }
 
 //	INFORMACION DE PERFIL DE USUARIO

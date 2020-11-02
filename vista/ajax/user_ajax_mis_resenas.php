@@ -1,6 +1,6 @@
 <?php
-	require_once "../../controlador/con_mis_resenas.php";
-	require_once "../../modelo/mod_mis_resenas.php";
+	require_once "../../controlador/user_con_mis_resenas.php";
+	require_once "../../modelo/user_mod_mis_resenas.php";
 
 	if (isset($_POST['action'])) 
 	{

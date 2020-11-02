@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/adm/con_usuarios.php";
-	require_once "../../../modelo/adm/mod_usuarios.php";
+	require_once "../../controlador/adm_con_usuarios.php";
+	require_once "../../modelo/adm_mod_usuarios.php";
 
 	$ac = $_GET['ac'];
 

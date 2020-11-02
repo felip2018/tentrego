@@ -1,13 +1,13 @@
 <?php
-	require_once "../../../controlador/adm/con_inicio.php";
-	require_once "../../../modelo/adm/mod_inicio.php";
+	require_once "../../controlador/adm_con_inicio.php";
+	require_once "../../modelo/adm_mod_inicio.php";
 
 	//require_once "../../modelo/PHPExcel/Classes/PHPExcel/IOFactory.php";
 
 	/*ENVIO DE MENSAJERIA VIA EMAIL*/
-	require_once "../../../modelo/PHPMailer/class.phpmailer.php";
-	require_once "../../../modelo/PHPMailer/class.smtp.php";
-	require_once "../../../modelo/PHPMailer/PHPMailerAutoload.php";
+	require_once "../../modelo/PHPMailer/class.phpmailer.php";
+	require_once "../../modelo/PHPMailer/class.smtp.php";
+	require_once "../../modelo/PHPMailer/PHPMailerAutoload.php";
 	
 	if (isset($_POST['modulo']) && isset($_POST['action'])) 
 	{

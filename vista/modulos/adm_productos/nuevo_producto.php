@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../../controlador/adm/con_productos.php";
-	require_once "../../../../modelo/adm/mod_productos.php";
+	require_once "../../../controlador/adm_con_productos.php";
+	require_once "../../../modelo/adm_mod_productos.php";
 	$producto = new ProductosCon();
 ?>
 <div class="row">

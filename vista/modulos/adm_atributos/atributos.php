@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../../controlador/adm/con_atributos.php";
-	require_once "../../../../modelo/adm/mod_atributos.php";
+	require_once "../../../controlador/adm_con_atributos.php";
+	require_once "../../../modelo/adm_mod_atributos.php";
 ?>
 <div class="col-12 alert alert-info">
 	<table>

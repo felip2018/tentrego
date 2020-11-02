@@ -3,55 +3,13 @@ function verListaPedidos()
 	jQuery.ajax({
 		type:"POST",
 		//url:"vista/ajax/ajax_mis_pedidos.php",
-		url:"vista/modulos/mis_pedidos/lista_pedidos.php",
+		url:"vista/modulos/user_mis_pedidos/lista_pedidos.php",
 		data:{
 			action: "listaPedidos",
 			email: localStorage.email
  		},
  		success:function (response) {
- 			//console.log(response);
  			jQuery(".listaPedidos").html(response);
- 			/*var jsonResponse = JSON.parse(response);
- 			if (jsonResponse.estado == "success") 
- 			{
- 				jQuery.each(jsonResponse.data,function (index,value) {
-
- 					var colorEstado;
-
- 					if (value['estado'] == "por pagar" || value['estado'] == "pendiente" || value['estado'] == "contra entrega") {
- 						colorEstado = "#f1c40f";
- 					}else if (value['estado'] == "cancelado") {
- 						colorEstado = "#c0392b";
- 					}else if (value['estado'] == "pagado") {
- 						colorEstado = "#2980b9";
- 					}else if (value['estado'] == "entregado") {
- 						colorEstado = "#27ae60";
- 					}
-
- 					var fecha = new Date(value['fecha']);
-
- 					jQuery(".listaPedidos").append('<tr>'+
- 												'<td>'+value['id_pedido']+'</td>'+
- 												'<td>'+value['codigo_pedido']+'</td>'+
- 												'<td>'+fecha+'</td>'+
- 												'<td> $ '+new Intl.NumberFormat().format(value['total'])+'</td>'+
- 												'<td style="background:'+colorEstado+';color:#FFF;">'+value['estado']+'</td>'+
- 												'<td>'+
- 												'<button type="button" class="btn btn-secondary" onclick="ver_pedido('+value['id_pedido']+')"><i class="fa fa-search"></i> Ver pedido</button>'+
- 												'<button title="Cancelar pedido" type="button" class="btn btn-danger" onclick=cancelar_pedido("'+value['id_pedido']+'","'+value['codigo_pedido']+'")><i class="fa fa-ban"></i> Cancelar</button>'+
- 												'</td>'+
- 											   '</tr>');
- 				});
- 			}
- 			else if(jsonResponse.estado == "vacio")
- 			{
- 				jQuery(".listaPedidos").html('<tr><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>');
- 			}
- 			else
- 			{
- 				console.log(jsonResponse);
- 			}*/
-
  		}
 	});
 }
@@ -60,7 +18,7 @@ function ver_pedido(id_pedido)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/mis_pedidos/ver_pedido.php",
+		url:"vista/modulos/user_mis_pedidos/ver_pedido.php",
 		data:{
 			id_pedido: id_pedido
 		},
@@ -81,7 +39,7 @@ function cancelar_pedido(id_pedido,codigo_pedido)
 	jQuery(".modal-btn-accept").click(function () {
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_mis_pedidos.php",
+			url:"vista/ajax/user_ajax_mis_pedidos.php",
 			data:{
 				action: 		"cancelarPedido",
 				id_pedido: 		id_pedido,
@@ -129,7 +87,7 @@ function pago_contraentrega(id_pedido)
 	jQuery(".modal-btn-accept").click(function () {
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_mis_pedidos.php",
+			url:"vista/ajax/user_ajax_mis_pedidos.php",
 			data:{
 				action: 	"pagoContraEntrega",
 				id_pedido: 	id_pedido
@@ -204,7 +162,7 @@ function producto_caso(caso,id_pedido,id_producto)
 	jQuery(".modal-btn-accept").click(function () {
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_mis_pedidos.php",
+			url:"vista/ajax/user_ajax_mis_pedidos.php",
 			data:{
 				action: 	"crearCaso",
 				caso: 		caso,

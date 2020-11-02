@@ -3,7 +3,7 @@ function verCarritoCompras()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_carrito.php?action=ver_carrito",
+		url:"vista/ajax/user_ajax_carrito.php?action=ver_carrito",
 		success:function (response) {
 			jQuery(".cart-view").html(response);
 		}
@@ -15,7 +15,7 @@ function eliminar_producto(indice)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_carrito.php?action=eliminar_producto",
+		url:"vista/ajax/user_ajax_carrito.php?action=eliminar_producto",
 		data:('indice='+indice)
 	}).done(function(response){
 
@@ -37,7 +37,7 @@ function cambiar_valor(indice,cantidad)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_carrito.php?action=cambiar_cantidad",
+		url:"vista/ajax/user_ajax_carrito.php?action=cambiar_cantidad",
 		data:('indice='+indice+'&cantidad='+cantidad)
 	}).done(function(response){
 		var jsonResponse = JSON.parse(response);
@@ -58,7 +58,7 @@ function vaciar_carrito_compra()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_carrito.php?action=vaciar_carrito"
+		url:"vista/ajax/user_ajax_carrito.php?action=vaciar_carrito"
 	}).done(function(respuesta){
 		if (respuesta == 1) 
 		{
@@ -79,7 +79,7 @@ function realizar_pedido()
 		var observaciones = jQuery("#observaciones");
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_carrito.php?action=realizar_pedido",
+			url:"vista/ajax/user_ajax_carrito.php?action=realizar_pedido",
 			data:{
 				email: 			localStorage.email,
 				observaciones: 	observaciones.val()

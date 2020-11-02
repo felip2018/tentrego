@@ -2,7 +2,7 @@ function verListaDirecciones()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/mis_direcciones/listaDirecciones.php",
+		url:"vista/modulos/user_mis_direcciones/listaDirecciones.php",
 		data:{
 			action: "listaDirecciones",
 			email: 	localStorage.email
@@ -17,7 +17,7 @@ function registrar_direccion()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/mis_direcciones/registrar_direccion.php",
+		url:"vista/modulos/user_mis_direcciones/registrar_direccion.php",
 		success:function (response) 
 		{
 			jQuery(".modal").modal("toggle");
@@ -36,7 +36,7 @@ function buscarCiudades()
 	{
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_mis_direcciones.php",
+			url:"vista/ajax/user_ajax_mis_direcciones.php",
 			data:{
 				action:"buscarCiudades",
 				id_dpto: id_dpto.val()
@@ -86,7 +86,7 @@ function salvar_direccion(action)
 
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_mis_direcciones.php",
+			url:"vista/ajax/user_ajax_mis_direcciones.php",
 			data:formData,
 			contentType:false,
 			processData:false,
@@ -129,7 +129,7 @@ function editar_direccion(id_direccion)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/mis_direcciones/editar_direccion.php",
+		url:"vista/modulos/user_mis_direcciones/editar_direccion.php",
 		data:{
 			id_direccion: id_direccion
 		},
@@ -147,7 +147,7 @@ function estado_direccion(estado,id_direccion)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_mis_direcciones.php",
+		url:"vista/ajax/user_ajax_mis_direcciones.php",
 		data:{
 			action: 		"estadoDireccion",
 			estado: 		estado,

@@ -1,9 +1,7 @@
 //	VER FORMULARIO DE REGISTRO DE PRODUCTO
 function nuevo_producto()
 {
-	//jQuery("#panel_animado").css("display","block");
-	//jQuery("#contenido_animado").load("vista/modulos/productos/nuevo_producto.php");
-	jQuery("#contenido_productos").load("vista/modulos/adm/productos/nuevo_producto.php");
+	jQuery("#contenido_productos").load("vista/modulos/adm_productos/nuevo_producto.php");
 }
 
 //	BUSCAR LISTA DE CLASIFICACION DE PRODUCTO POR CATEGORIA SELECCIONADA
@@ -14,7 +12,7 @@ function buscarClasificaciones()
 	{
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/adm/ajax_productos.php?action=buscarClasificacion",
+			url:"vista/ajax/adm_ajax_productos.php?action=buscarClasificacion",
 			data:{
 				id_categoria: id_categoria.val()
 			},
@@ -141,7 +139,7 @@ function salvar_producto(action)
 
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/adm/ajax_productos.php?action=registrar",
+						url:"vista/ajax/adm_ajax_productos.php?action=registrar",
 						data:formData,
 						contentType:false,
 						processData:false,
@@ -189,7 +187,7 @@ function salvar_producto(action)
 
 					jQuery.ajax({
 						type:"POST",
-						url:"vista/ajax/adm/ajax_productos.php?action=actualizar",
+						url:"vista/ajax/adm_ajax_productos.php?action=actualizar",
 						data:formData,
 						contentType:false,
 						processData:false,
@@ -234,7 +232,7 @@ function editar_producto(id_producto)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/adm/productos/editar_producto.php",
+		url:"vista/modulos/adm_productos/editar_producto.php",
 		data:('id_producto='+id_producto)
 	}).done(function (respuesta) {
 		//jQuery("#panel_animado").css("display","block");
@@ -248,7 +246,7 @@ function estado_producto(estado,id_producto)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/adm/ajax_productos.php?action=estado",
+		url:"vista/ajax/adm_ajax_productos.php?action=estado",
 		data:{
 			estado: estado,
 			id_producto: id_producto
@@ -279,7 +277,7 @@ function filtro_productos(id_categoria)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/adm/ajax_productos.php?action=filtro",
+		url:"vista/ajax/adm_ajax_productos.php?action=filtro",
 		data:('id_categoria='+id_categoria)
 	}).done(function (response) {
 		jQuery(".view_products").html(response);
@@ -297,7 +295,7 @@ function eliminar_atributo(id_atributo,id_producto)
 	jQuery(".modal-btn-accept").click(function () {
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/adm/ajax_productos.php?action=estado_atributo",
+			url:"vista/ajax/adm_ajax_productos.php?action=estado_atributo",
 			data:{
 				id_atributo: id_atributo,
 				id_producto: id_producto
@@ -329,7 +327,7 @@ function galeriaProducto(id_producto)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/adm/productos/galeria_producto.php",
+		url:"vista/modulos/adm_productos/galeria_producto.php",
 		data:('id_producto='+id_producto)
 	}).done(function (respuesta) {
 		jQuery("#contenido_productos").html(respuesta);
@@ -358,7 +356,7 @@ function subir_imagen(id_producto)
 
 			jQuery.ajax({
 				type:"POST",
-				url:"vista/ajax/adm/ajax_productos.php?action=subir_imagen",
+				url:"vista/ajax/adm_ajax_productos.php?action=subir_imagen",
 				data:formData,
 				contentType:false,
 				processData:false,
@@ -405,7 +403,7 @@ function estado_imagen(estado,id_producto,id_imagen)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/adm/ajax_productos.php?action=estado_imagen",
+		url:"vista/ajax/adm_ajax_productos.php?action=estado_imagen",
 		data:{
 			estado: 	estado,
 			id_producto:id_producto,
@@ -481,7 +479,7 @@ function crear_promocion()
 
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/adm/ajax_productos.php?action=crear_promocion",
+		url:"vista/ajax/adm_ajax_productos.php?action=crear_promocion",
 		data:formData,
 		contentType:false,
 		processData:false,

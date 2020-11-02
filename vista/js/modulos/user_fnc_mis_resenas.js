@@ -2,7 +2,7 @@ function crear_resena(id_pedido,id_producto,email)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_mis_resenas.php",
+		url:"vista/ajax/user_ajax_mis_resenas.php",
 		data:{
 			action: 	"validarResena",
 			id_pedido: 	id_pedido,
@@ -62,7 +62,7 @@ function salvar_resena(id_pedido,id_producto,email)
 	{
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_mis_resenas.php",
+			url:"vista/ajax/user_ajax_mis_resenas.php",
 			data:{
 				action: 		"salvarResena",
 				id_pedido: 		id_pedido,
@@ -113,7 +113,7 @@ function verListaResenas()
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/mis_resenas/listaResenas.php",
+		url:"vista/modulos/user_mis_resenas/listaResenas.php",
 		data:{
 			action: "listaResenas",
 			email: 	localStorage.email
@@ -128,7 +128,7 @@ function verResena(id_resena)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/modulos/mis_resenas/ver_resena.php",
+		url:"vista/modulos/user_mis_resenas/ver_resena.php",
 		data:{
 			id_resena: 	id_resena
 		},
@@ -152,7 +152,7 @@ function actualizar_resena(id_pedido,id_producto,email)
 	{
 		jQuery.ajax({
 			type:"POST",
-			url:"vista/ajax/ajax_mis_resenas.php",
+			url:"vista/ajax/user_ajax_mis_resenas.php",
 			data:{
 				action: 		"actualizarResena",
 				id_resena: 		jQuery("#id_resena").val(),
@@ -201,7 +201,7 @@ function estado_resena(estado,id_resena)
 {
 	jQuery.ajax({
 		type:"POST",
-		url:"vista/ajax/ajax_mis_resenas.php",
+		url:"vista/ajax/user_ajax_mis_resenas.php",
 		data:{
 			action: 	"estadoResena",
 			estado: 	estado,

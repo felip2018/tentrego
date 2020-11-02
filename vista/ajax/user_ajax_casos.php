@@ -1,6 +1,6 @@
 <?php
-	require_once "../../controlador/con_casos.php";
-	require_once "../../modelo/mod_casos.php";
+	require_once "../../controlador/user_con_casos.php";
+	require_once "../../modelo/user_mod_casos.php";
 
 	if (isset($_GET['action'])) 
 	{

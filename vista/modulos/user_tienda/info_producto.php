@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/con_info.php";
-	require_once "../../../modelo/mod_info.php";
+	require_once "../../../controlador/user_con_info.php";
+	require_once "../../../modelo/user_mod_info.php";
 
 
 	

@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/con_usuarios.php";
-	require_once "../../../modelo/mod_usuarios.php";
+	require_once "../../../controlador/adm_con_usuarios.php";
+	require_once "../../../modelo/adm_mod_usuarios.php";
 ?>
 	<div class="col-12">
 		<h4 class="alert alert-info">Usuarios</h4>

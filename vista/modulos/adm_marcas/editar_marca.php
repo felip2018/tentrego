@@ -1,6 +1,6 @@
 <?php
-	require_once "../../../controlador/con_marcas.php";
-	require_once "../../../modelo/mod_marcas.php";
+	require_once "../../../controlador/adm_con_marcas.php";
+	require_once "../../../modelo/adm_mod_marcas.php";
 
 	$id_marca 	= $_POST['id_marca'];
 

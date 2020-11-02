@@ -1,6 +1,6 @@
 <?php
 	require_once "conexion.php";
-	require_once "../mod_emails.php";
+	require_once "mod_emails.php";
 	/**
 	 * MODELO DE DEVOLUCIONES Y GARANTIAS
 	 */
