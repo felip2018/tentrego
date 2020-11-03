@@ -151,7 +151,7 @@ input[type="radio"]:checked ~ label {
 			?>
 					<div class="row">
 						<div class="col-xs-12 col-md-2">
-							<img src="../adm/vista/modulos/productos/imagenes/<?php echo $producto['imagen'];?>" alt="Producto" style="width: 100%;height: auto;">
+							<img src="vista/img/productos/<?php echo $producto['imagen'];?>" alt="Producto" style="width: 100%;height: auto;">
 						</div>
 						<div class="col-xs-12 col-md-10">
 							<h5><?php echo $nombre_producto;?></h5>

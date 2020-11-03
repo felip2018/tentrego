@@ -112,7 +112,7 @@
 				?>
 					<div class="col-xs-12 col-md-3">
 						<div class="contenedor_producto">
-						  	<img class="card-img-top" src="app/adm/vista/modulos/productos/imagenes/<?php echo $imagen;?>" alt="<?php echo $producto['nombre'];?>" width="100%" height="auto">
+						  	<img class="card-img-top" src="vista/img/productos/<?php echo $imagen;?>" alt="<?php echo $producto['nombre'];?>" width="100%" height="auto">
 						  	<div class="card-body text-left">
 						    	<h5 class="card-title"><?php echo $producto['nombre'];?></h5>
 						    	<!--<b><?php //echo "$".number_format($producto['venta']);?></b>-->

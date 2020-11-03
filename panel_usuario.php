@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Usuario</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../../vista/img/favicon.png" type="image/png" sizes="20x20">
+  <link rel="icon" href="vista/img/favicon.png" type="image/png" sizes="20x20">
   
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
@@ -76,7 +76,6 @@
                 <tr class="opciones" style="display: block;" id="opc_mi_perfil">
                   <td>
                     <table>
-                      <!--<tr><td><a href="#Mis_datos_personales" onclick="loadPage('mis_datos_personales')"><i class="fa fa-database"></i> Mis datos personales</a></td></tr>-->
                       <tr><td><a href="#mis_direcciones" onclick="loadPage('mis_direcciones')"><i class="fa fa-map-marker-alt"></i> Mis direcciones</a></td></tr>
                     </table>
                   </td>
@@ -118,7 +117,6 @@
             </a>
           </div>
           <div class="col-9" style="padding: 10px;text-align: right;">
-            <!--<img src="../../vista/img/logo_click_store_2.png" alt="Logo Click Store">-->
             <button class="btn btn-light" type="button">
               <script type="text/javascript">
                 document.write(localStorage.nombre);
@@ -152,7 +150,7 @@
     </div>
     
     <div style="text-align: center;">
-      <img src="../../vista/img/logo_click_store_2.png" alt="Logo Click Store">
+      <img src="vista/img/logo_click_store_2.png" alt="Logo Click Store">
     </div>
     <table>
       <tr>

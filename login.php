@@ -169,7 +169,7 @@
 					<!--<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5"></div>-->
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" id="panel_login" style="border-radius: 0px;text-align: center;margin: auto;">
 						<div style="text-align: left;">
-							<a href="../">	
+							<a href="index.php">	
 								<i class="fa fa-chevron-left"></i> Volver
 							</a>
 						</div>

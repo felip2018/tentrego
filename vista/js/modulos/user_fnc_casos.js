@@ -1,7 +1,7 @@
 //	CONSULTAR LISTA DE CASOS CREADOS POR EL CLIENTE
 function casos(email) 
 {
-	console.log("Email ->"+ email);
+	//console.log("Email ->"+ email);
 }
 //	VER DETALLE DEL CASO
 function ver_caso(id_caso)

@@ -1,11 +1,11 @@
 //	VER CARRITO DE COMPRAS
 function verCarritoCompras()
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_carrito.php?action=ver_carrito",
 		success:function (response) {
-			$(".cart-view").html(response);
+			jQuery(".cart-view").html(response);
 		}
 	});
 }
@@ -13,7 +13,7 @@ function verCarritoCompras()
 //	FUNCION PARA ELIMINAR PRODUCTO DEL CARRITO DE COMPRAS
 function eliminar_producto(indice)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_carrito.php?action=eliminar_producto",
 		data:('indice='+indice)
@@ -35,7 +35,7 @@ function eliminar_producto(indice)
 //	FUNCION PARA ACTUALIZAR LA CANTIDAD DE PRODUCTO
 function cambiar_valor(indice,cantidad)
 {
-	$.ajax({
+	jQuery.ajax({
 		type:"POST",
 		url:"vista/ajax/ajax_carrito.php?action=cambiar_cantidad",
 		data:('indice='+indice+'&cantidad='+cantidad)
@@ -60,7 +60,7 @@ function vaciar_carrito_compra()
 	if (confirmacion) 
 	{
 
-		$.ajax({
+		jQuery.ajax({
 			type:"POST",
 			url:"accion.php?ac=6"
 		}).done(function(respuesta){
@@ -75,15 +75,11 @@ function vaciar_carrito_compra()
 //	VALIDAR SI EL USUARIO TIENE LA SESION INICIADA PARA GUIARLO AL PROCESO DE PAGO
 function validar_sesion()
 {
-	if (localStorage.acceso === undefined) 
-	{
-		location.href = "app/";
-	}
-	else if(localStorage.acceso == '1')
-	{
-		if (localStorage.id_perfil == '2') 
-		{
-			location.href = "app/user/";
+	if (localStorage.acceso === undefined) {
+		location.href = "login.php";
+	} else if(localStorage.acceso == '1') {
+		if (localStorage.id_perfil == '2')  {
+			location.href = "panel_usuario.php";
 		}
 	}
 }

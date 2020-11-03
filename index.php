@@ -20,17 +20,28 @@
 	<link rel="icon" href="./vista/img/favicon.png" type="image/png" sizes="20x20">
 	
 	
-	<!--BOOTSTRAP-->
+	<!--BOOTSTRAP CSS-->
 	<link rel="stylesheet" type="text/css" href="./vista/css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="./vista/css/style.css">
+
+	<!--JQUERY-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
+	<!--BOOTSTRAP JS-->
+	<script type="text/javascript" src="./vista/js/bootstrap/bootstrap.min.js"></script>
 	
-	<!--<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">-->
 	<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed|Montserrat|Raleway" rel="stylesheet">
 	
 	<!--FONT-AWESOME-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	
+	<!--FUNCIONES-->
+	<script type="text/javascript" src="./vista/js/core.js"></script>
+	<script type="text/javascript" src="./vista/js/funciones/fnc_registro.js"></script>
+	<script type="text/javascript" src="./vista/js/funciones/fnc_tienda.js"></script>
+	<script type="text/javascript" src="./vista/js/funciones/fnc_carrito.js"></script>
+	<script type="text/javascript" src="./vista/js/funciones/fnc_info.js"></script>
+	<script type="text/javascript" src="./vista/js/funciones/fnc_contacto.js"></script>
 	
 	
 </head>
@@ -144,17 +155,9 @@
 
     <!--JQUERY-->
 	<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>-->
-	<!--JQUERY-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="./vista/js/bootstrap/bootstrap.min.js"></script>
+	
 
-    <!--FUNCIONES-->
-	<script type="text/javascript" src="./vista/js/core.js"></script>
-	<script type="text/javascript" src="./vista/js/funciones/fnc_registro.js"></script>
-	<script type="text/javascript" src="./vista/js/funciones/fnc_tienda.js"></script>
-	<script type="text/javascript" src="./vista/js/funciones/fnc_carrito.js"></script>
-	<script type="text/javascript" src="./vista/js/funciones/fnc_info.js"></script>
-	<script type="text/javascript" src="./vista/js/funciones/fnc_contacto.js"></script>
+    
 
 	<!--NOTIFICACIONES PUSH-->
 	<script type="text/javascript" src="./vista/js/push_js/bin/push.min.js"></script>

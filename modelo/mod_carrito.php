@@ -123,7 +123,7 @@
 									<table style="width: 100%;">
 										<tr>
 											<td style="width: 20%;">
-												<img src="app/adm/vista/modulos/productos/imagenes/<?php echo $imagen;?>" alt="Producto" style="width: 100px;height: 100px;">
+												<img src="vista/img/productos/<?php echo $imagen;?>" alt="Producto" style="width: 100px;height: 100px;">
 											</td>
 											<td style="width: 80%;">
 												<table style="width: 100%;">

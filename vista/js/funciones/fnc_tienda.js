@@ -61,7 +61,7 @@ function filtro_productos(id_categoria)
 
 				$(".view_products").append('<div class="col-xs-12 col-md-3">'+
 												'<div class="contenedor_producto">'+
-												  	'<img class="card-img-top" src="app/adm/vista/modulos/productos/imagenes/'+imagen+'" alt="'+value['nombre']+'" width="100%" height="auto">'+
+												  	'<img class="card-img-top" src="vista/img/productos/'+imagen+'" alt="'+value['nombre']+'" width="100%" height="auto">'+
 												  	'<div class="card-body text-left">'+
 												    	'<h5 class="card-title">'+value['nombre']+'</h5>'+
 												    	'<!--<b>$'+value['venta']+'</b>-->'+
@@ -142,7 +142,7 @@ function filtro_productos_clasificacion(id_clasificacion,id_categoria)
 
 				$(".view_products").append('<div class="col-xs-12 col-md-3">'+
 												'<div class="contenedor_producto">'+
-												  	'<img class="card-img-top" src="app/adm/vista/modulos/productos/imagenes/'+imagen+'" alt="'+value['nombre']+'" width="100%" height="auto">'+
+												  	'<img class="card-img-top" src="vista/img/productos/'+imagen+'" alt="'+value['nombre']+'" width="100%" height="auto">'+
 												  	'<div class="card-body text-left">'+
 												    	'<h5 class="card-title">'+value['nombre']+'</h5>'+
 												    	'<!--<b>$'+value['venta']+'</b>-->'+

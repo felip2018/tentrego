@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="vista/css/adm_style.css">
   <script type="text/javascript" src="vista/js/bootstrap/bootstrap.min.js"></script>
   
-  <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">-->
   <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed|Montserrat|Raleway" rel="stylesheet">
 
 
