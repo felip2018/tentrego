@@ -31,6 +31,7 @@
 	<script type="text/javascript" src="./vista/js/bootstrap/bootstrap.min.js"></script>
 	
 	<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed|Montserrat|Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	
 	<!--FONT-AWESOME-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -51,13 +52,13 @@
 			<div class="col-12" style="background: rgb(192,57,43);">
 				<div class="row">
 					<div class="col-xs-12 col-md-4" style="padding: 10px;text-align: center;">
-						<img src="./vista/img/logo_click_store_2.png" alt="Logo Click Store">
+						<h2 style="color:#ffffff;">Te Entrego...</h2>
 					</div>
 
 					<div class="col-xs-12 col-md-8" style="padding: 10px;text-align: right;color:#FFF;">
 						<a class="btn_sup" href="./login.php" target="_blank"><i class="fa fa-sign-in-alt"></i> Ingresar</a>
-						<a class="btn_sup" href="./registrarse"><i class="fa fa-user-plus"></i> Registrarse</a>
-						<a class="btn_sup" href="./como_comprar"><i class="fa fa-question-circle"></i> ¿Como Comprar?</a>
+						<!--<a class="btn_sup" href="./registrarse"><i class="fa fa-user-plus"></i> Registrarse</a>
+						<a class="btn_sup" href="./como_comprar"><i class="fa fa-question-circle"></i> ¿Como Comprar?</a>-->
 					</div>	
 				</div>
 			</div>
@@ -87,7 +88,7 @@
 					Somos una tienda en linea con presencia en bogotá, con el propósito de expandirnos a otros sectores de colombia. Queremos llegar a tí con los productos de mejor calidad disponibles en el mercado y a precios accesibles para todos.
 				</p>
 				<p>
-					Otorgamos a nuestros clientes la posibilidad de adquirir beneficios a nombre de <b>Click Store</b> bien sea por su fidelidad y/o compromiso al comprar a través de la plataforma o también por hacer uso de sus redes sociales para compartir contenido.
+					Otorgamos a nuestros clientes la posibilidad de adquirir beneficios a nombre de <b>Te Entrego</b> bien sea por su fidelidad y/o compromiso al comprar a través de la plataforma o también por hacer uso de sus redes sociales para compartir contenido.
 				</p>
 			</div>
 			<div class="col-xs-12 col-md-4">
@@ -101,24 +102,25 @@
 			<div class="col-xs-12 col-md-4">
 				<h4>Mi Cuenta</h4>
 				<a href="./ingresar" class="enlace_footer"><i class="fa fa-user"></i> Ingresar</a></li>
-				<a href="./registrarse" class="enlace_footer"><i class="fa fa-sign-in-alt"></i> Registrarse</a></li>
-				<a href="./como_comprar" class="enlace_footer"><i class="fa fa-question-circle"></i> ¿Como Comprar?</a>
+				<!--<a href="./registrarse" class="enlace_footer"><i class="fa fa-sign-in-alt"></i> Registrarse</a></li>
+				<a href="./como_comprar" class="enlace_footer"><i class="fa fa-question-circle"></i> ¿Como Comprar?</a>-->
 			</div>
 			<div class="col-xs-12 col-md-12" style="padding: 10px;text-align: center;">
-				<img src="./vista/img/logo_click_store_2.png" alt="Logo Click Store">
+				<h2 style="color: #ffffff">Te Entrego...</h2>
 			</div>
 			<div class="col-xs-12 col-md-12" style="padding: 10px;text-align: center;">
-				<button class="btn btn-primary" style="border-radius: 20px;" onclick="window.open('https://www.facebook.com/CLICKSTOREBogota/','_blank')"><img src="./vista/img/facebook-square.svg" alt="Facebook Icon" height="25px" width="25px"></button>
-				<button class="btn btn-primary" style="border-radius: 20px;" onclick="window.open('https://www.instagram.com/clickstorebogota/?hl=es','_blank')"><img src="./vista/img/instagram.svg" alt="Facebook Icon" height="25px" width="25px"></button>
+				<button class="btn btn-primary" style="border-radius: 10px;font-size: 15pt;" onclick="window.open('https://www.facebook.com/CLICKSTOREBogota/','_blank')"><i class="fab fa-facebook"></i></button>
+				<button class="btn btn-primary" style="border-radius: 10px;font-size: 15pt;" onclick="window.open('https://www.instagram.com/clickstorebogota/?hl=es','_blank')"><i class="fab fa-instagram"></i></button>
 			</div>
 			<div class="col-xs-12 col-md-4" style="text-align: center; ">
-				<p><i class="fa fa-home" style="color:#FFF;"></i> 12K Street , 45 Building Road Canada.</p>
+				<!--<p><i class="fa fa-home" style="color:#FFF;"></i> 12K Street , 45 Building Road Canada.</p>-->
 			</div>
 			<div class="col-xs-12 col-md-4" style="text-align: center; ">
-				<p><i class="fa fa-phone" style="color:#FFF;"></i> +1234 758 839 , +1273 748 730</p>
+				<p><i class="fa fa-phone" style="color:#FFF;"></i> (+57) 320 994 5466</p>
+				<p><i class="fa fa-at" style="color:#FFF;"></i> vatruja@hotmail.com</p>
 			</div>
 			<div class="col-xs-12 col-md-4" style="text-align: center; ">
-				<p><i class="fa fa-at" style="color:#FFF;"></i> correo@email.com</p>
+				
 			</div>
 			<div class="col-xs-12 col-md-12" style="text-align: center; ">
 				<!--<p><i class="fa fa-copyright" style="color:#FFF;"></i> 2018 Next&Tech. Todos los derechos reservados.</p>-->

@@ -201,15 +201,15 @@
 											<i class="fa fa-sign-in-alt"></i> Ingresar
 										</button>
 									</td>
-									<td>
+									<!--<td>
 										<button type="button" class="btn btn-secondary btn-block" onclick="registrarse()">
 											<i class="fa fa-user-plus"></i> Registrarse
 										</button>
-									</td>
+									</td>-->
 								</tr>
 							</table>
 							
-							<button type="button" class="btn btn-block mt-1 btn_facebook" style="background: rgb(66,103,168);color: #FFF;"> Continuar con Facebook</button>
+							<!--<button type="button" class="btn btn-block mt-1 btn_facebook" style="background: rgb(66,103,168);color: #FFF;"> Continuar con Facebook</button>-->
 						</form>
 						
 						<hr>
@@ -219,7 +219,7 @@
 						</button>
 
 						<hr>
-						<p style="font-size: 10pt;color: #000;">&copy; Copyright 2018 Departamento de Tecnologia - <a href="https://www.nextytech.net" target="_blank">Netx&Tech</a> v1.0</p>
+						<p style="font-size: 10pt;color: #000;">&copy; Copyright 2020 Departamento de Tecnologia - <a href="https://www.ifeelsoftware.com" target="_blank">IFeelSoftware</a> v1.0</p>
 					</div>
 				</div>
 			</div>
