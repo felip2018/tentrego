@@ -20,6 +20,7 @@
 			{
 			 	# 	EL USUARIO ESTA EN EL SISTEMA
 			 	$consulta = Conexion::conectar()->prepare("SELECT  
+			 	usuarios.id_usuario,
 				usuarios.id_tipo_identi,
 				usuarios.num_identi,
 				CONCAT(usuarios.nombre,' ',usuarios.apellido) AS nombre,
@@ -36,7 +37,7 @@
 				WHERE 	usuarios.email 		= :login 
 				AND 	usuarios.clave 		= :clave
 				AND 	usuarios.estado 	= :estado");
-
+			 	
 				$consulta->bindParam(":login", $datosMod["login"],	PDO::PARAM_STR);
 				$consulta->bindParam(":clave", $datosMod["clave"],	PDO::PARAM_STR);
 				$consulta->bindParam(":estado",$datosMod["estado"], PDO::PARAM_STR);

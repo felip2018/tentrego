@@ -10,7 +10,7 @@
 	$encrypt 		= crypt($clave,$salt);
 
 	$datosUsuario 	= array("login"		=> $login,
-							"clave"		=> $encrypt,
+							"clave"		=> $clave,
 							"estado"	=> "Activo");
 
 	$login = new LoginCon();

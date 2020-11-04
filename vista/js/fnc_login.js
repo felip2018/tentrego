@@ -1,10 +1,9 @@
 function validar_login() 
 {
-	//var razon_social 	= jQuery("#razon_social");
-	var login 			= jQuery("#login");	
-	var clave			= jQuery("#clave");
+	var login   = jQuery("#login");	
+	var clave   = jQuery("#clave");
 
-	var errores 		= 0;
+	var errores = 0;
 	jQuery("#alerta").css("display","none");
 	jQuery("#alerta").html("");
 	
@@ -52,13 +51,13 @@ function validar_login()
 							{
 								//console.log("Ingresa");
 								localStorage.acceso 		= 1;
+								localStorage.id_usuario 	= jsonResponse.data['id_usuario'];
 								localStorage.id_tipo_identi = jsonResponse.data['id_tipo_identi'];
 								localStorage.num_identi 	= jsonResponse.data['num_identi'];
 								localStorage.nombre 		= jsonResponse.data['nombre'];
 								localStorage.email 			= jsonResponse.data['email'];
 								localStorage.telefono 		= jsonResponse.data['telefono'];
 								localStorage.id_perfil 		= jsonResponse.data['id_perfil'];
-								localStorage.clave 			= jsonResponse.data['clave'];
 								localStorage.foto 			= jsonResponse.data['foto'];
 								localStorage.fecha_usuario 	= jsonResponse.data['fecha_usuario'];
 								localStorage.estado 		= jsonResponse.data['estado'];

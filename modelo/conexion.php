@@ -6,7 +6,7 @@
 	{
 		public static function conectar()
 		{
-			$con = new PDO("mysql:host=localhost;dbname=te_entrego","nextyt","IbMKDNHcQxUPpro");
+			$con = new PDO("mysql:host=localhost;dbname=db_tentrego","tentrego_user","tentrego2020");
 			return $con;
 		}
 	}

@@ -127,28 +127,6 @@
 
 	</script>
 
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : '320544408486189',
-	      cookie     : true,
-	      xfbml      : true,
-	      version    : 'v3.0'
-	    });
-	      
-	    FB.AppEvents.logPageView();   
-	      
-	  };
-
-	  (function(d, s, id){
-	     var js, fjs = d.getElementsByTagName(s)[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement(s); js.id = id;
-	     js.src = "https://connect.facebook.net/en_US/sdk.js";
-	     fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-	</script>
-
 </head>
 <body>
 	<?php
@@ -169,13 +147,14 @@
 					<!--<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5"></div>-->
 					<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" id="panel_login" style="border-radius: 0px;text-align: center;margin: auto;">
 						<div style="text-align: left;">
-							<a href="index.php">	
-								<i class="fa fa-chevron-left"></i> Volver
+							<a class="btn btn-secondary" href="index.php">	
+								<i class="fa fa-chevron-left" style="color:#ffffff;"></i> Volver
 							</a>
+							<hr>
 						</div>
 
-						<div style="background: rgb(192,57,43);">
-							<img src="vista/img/logo_click_store_2.png" alt="Logo Click Store">
+						<div style="background: #c0392b;color:#ffffff;padding: 5px;">
+							<h2>Te_Entrego</h2>
 						</div>
 
 						<form id="form_ingreso">
@@ -183,11 +162,11 @@
 							<div class="row" style="padding: 10px;">
 								
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-									<label for="login">Usuario</label>
+									<label for="login"><i class="fa fa-user"></i> Usuario</label>
 									<input class="form-control" type="text" name="login" id="login">
 								</div>
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-									<label for="clave">Contraseña</label>
+									<label for="clave"><i class="fa fa-key"></i> Contraseña</label>
 									<input class="form-control" type="password" name="clave" id="clave" onkeypress="pulsar(event)">
 								</div>
 								<div id="alerta" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 alert alert-danger" style="display: none;">
@@ -219,7 +198,7 @@
 						</button>
 
 						<hr>
-						<p style="font-size: 10pt;color: #000;">&copy; Copyright 2020 Departamento de Tecnologia - <a href="https://www.ifeelsoftware.com" target="_blank">IFeelSoftware</a> v1.0</p>
+						<p style="font-size: 10pt;color: #000;">&copy; Copyright 2020 Departamento de Tecnologia - <a class="btn" href="https://www.ifeelsoftware.com" target="_blank">IFeelSoftware</a> v1.0</p>
 					</div>
 				</div>
 			</div>
